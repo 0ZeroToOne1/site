@@ -1,6 +1,8 @@
 'use client';
 
+import MotionList from './builder/MotionList';
 import { FC } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
@@ -30,15 +32,15 @@ const tiers = [
 
 const PricingTable: FC = () => {
   return (
-    <section className="px-6 py-24 bg-white" id="pricing">
-      <div className="mx-auto max-w-6xl text-center mb-16">
-        <h2 className="text-3xl font-bold text-[#030b1a] tracking-tight mb-2">Pricing Packages</h2>
-        <p className="text-gray-600 max-w-xl mx-auto">
+    <MotionSection className="px-6 py-24 bg-white" id="pricing">
+      <div className="max-w-6xl mx-auto mb-16 text-center">
+        <RevealText className="mb-2 text-3xl font-bold tracking-tight text-[#030b1a]">Pricing Packages</RevealText>
+        <p className="max-w-xl mx-auto text-gray-600">
           Choose a package that fits your stage — or let’s customize one together.
         </p>
-      </div>
+      </MotionCard>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 max-w-6xl mx-auto gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier, i) => (
           <motion.div
             key={i}
@@ -51,24 +53,24 @@ const PricingTable: FC = () => {
             viewport={{ once: true }}
           >
             {tier.highlight && (
-              <div className="text-xs font-semibold uppercase text-blue-600 mb-4">Most Popular</div>
+              <div className="mb-4 text-xs font-semibold text-blue-600 uppercase">Most Popular</MotionCard>
             )}
             <h3 className="text-xl font-semibold text-[#030b1a]">{tier.name}</h3>
-            <p className="text-gray-500 text-sm mb-4">{tier.description}</p>
-            <div className="text-3xl font-bold text-[#030b1a] mb-6">{tier.price}</div>
+            <RevealText as='p' className="mb-4 text-gray-500 text-sm">{tier.description}</RevealText>
+            <div className="mb-6 text-3xl font-bold text-[#030b1a]">{tier.price}</MotionCard>
 
-            <ul className="space-y-2 text-sm text-left text-gray-700">
+            <MotionList className="space-y-2 text-sm text-left text-gray-700">
               {tier.features.map((f, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600 mt-[2px]" />
+                <motion.li variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} key={idx} className="flex gap-2 items-start">
+                  <CheckCircle className="h-4 w-4 mt-[2px] text-blue-600" />
                   <span>{f}</span>
                 </li>
               ))}
-            </ul>
+            </MotionList>
           </motion.div>
         ))}
-      </div>
-    </section>
+      </MotionCard>
+    </MotionSection>
   );
 };
 

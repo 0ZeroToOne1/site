@@ -1,6 +1,8 @@
 'use client';
 
+import MotionCard from './builder/MotionCard';
 import { useEffect, useState, useRef } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
@@ -76,14 +78,14 @@ export default function FloatingSectionNav() {
     <motion.div
       animate={{ opacity: collapsed ? 0 : 1, y: collapsed ? -10 : 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-1/2 -translate-y-1/2 right-4 z-40 hidden lg:flex flex-col gap-3"
+      className="fixed z-40 hidden flex-col gap-3 top-1/2 -translate-y-1/2 right-4 lg:flex"
     >
       {sections.map(({ id, label }) => (
         <a
           key={id}
           href={id}
           onClick={(e) => handleClick(e, id)}
-          className="group relative"
+          className="relative group"
           aria-label={label}
         >
           <span
@@ -98,7 +100,7 @@ export default function FloatingSectionNav() {
             initial={{ opacity: 0, x: 5 }}
             whileHover={{ opacity: 1, x: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-7 top-1/2 -translate-y-1/2 whitespace-nowrap text-xs text-[#3b82f6] opacity-0 group-hover:opacity-100"
+            className="absolute text-xs right-7 top-1/2 -translate-y-1/2 whitespace-nowrap text-[#3b82f6] opacity-0 group-hover:opacity-100"
           >
             {label}
           </motion.span>

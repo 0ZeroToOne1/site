@@ -1,6 +1,8 @@
 'use client';
 
+import RevealText from './builder/RevealText';
 import { FC, useRef } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 
@@ -18,22 +20,22 @@ const ClientLogoMarquee: FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section
+    <MotionSection
       ref={ref}
-      className="relative bg-white px-6 py-16 pb-2 md:pb-8 overflow-hidden"
+      className="relative px-6 py-16 pb-2 bg-white md:pb-8 overflow-hidden"
     >
-      <div className="text-center md:text-left mb-8">
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 flex justify-center">
+      <div className="mb-8 text-center md:text-left">
+        <h2 className="flex justify-center text-sm font-semibold tracking-widest text-gray-400 uppercase">
           Trusted by forward-thinkers
         </h2>
       </div>
 
       {/* Side Fades */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-1/6 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-1/6 bg-gradient-to-l from-white to-transparent" />
+      <div className="absolute z-10 h-full w-1/6 bg-gradient-to-r from-white to-transparent pointer-events-none left-0 top-0" />
+      <div className="absolute z-10 h-full w-1/6 bg-gradient-to-l from-white to-transparent pointer-events-none right-0 top-0" />
 
       {/* Animated Marquee */}
-      <div className="mx-auto w-2/3 sm:w-1/3 overflow-hidden">
+      <div className="w-2/3 mx-auto sm:w-1/3 overflow-hidden">
         <motion.div
           className={`flex gap-12 whitespace-nowrap transition-opacity duration-1000 ${
             isInView ? 'opacity-100' : 'opacity-0'
@@ -49,7 +51,7 @@ const ClientLogoMarquee: FC = () => {
           {logos.concat(logos).map((logo, i) => (
             <div
               key={i}
-              className="flex flex-col md:flex-row items-center justify-center min-w-[120px] opacity-70 transition hover:opacity-100 grayscale hover:grayscale-0"
+              className="flex flex-col items-center justify-center hover:opacity-100 hover:grayscale-0 transition md:flex-row min-w-[120px] opacity-70 grayscale"
             >
               <Image
                 src={logo.src}
@@ -62,7 +64,7 @@ const ClientLogoMarquee: FC = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

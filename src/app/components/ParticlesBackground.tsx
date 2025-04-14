@@ -1,5 +1,6 @@
 'use client';
 
+import RevealText from './builder/RevealText';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import * as THREE from 'three';
@@ -53,12 +54,12 @@ function FloatingPixel({ scrollYProgress }: { scrollYProgress: MotionValue<numbe
 
 export default function ParticlesBackground({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   return (
-    <div className="absolute inset-0 z-[1] pointer-events-none">
+    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="absolute inset-0 z-[1] pointer-events-none">
       <Canvas camera={{ position: [0, 0, 2] }}>
         <ambientLight />
         <SquareOutline />
         <FloatingPixel scrollYProgress={scrollYProgress} />
       </Canvas>
-    </div>
+    </MotionCard>
   );
 }

@@ -1,6 +1,8 @@
 
 'use client';
 
+import MotionCard from './builder/MotionCard';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { isValidElement } from 'react';
 
@@ -10,7 +12,7 @@ const IconDraw = ({ icon: Icon, delay = 0 }: { icon: any; delay: number }) => {
 
   return (
     <motion.div
-      className="mb-4"
+      whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mb-4"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}

@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect, FC } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import MotionCard from './builder/MotionCard';
+import RevealText from './builder/RevealText';
 import DiscoverMock from './HowWeWorkTimeline/DiscoverMock';
 import DesignMock from './HowWeWorkTimeline/DesignMock';
 import BuildMock from './HowWeWorkTimeline/BuildMock';
@@ -69,18 +71,18 @@ const HowWeWorkTimeline: FC = () => {
   };
 
   return (
-    <section
+    <MotionSection
       id="how-we-work"
-      className="bg-white px-6 py-20 sm:py-24"
+      className="px-6 py-20 bg-white sm:py-24"
     >
       
-      <div className="mx-auto w-full sm:w-2/3">
+      <div className="w-full mx-auto sm:w-2/3">
         {/* Header */}
-        <div className="mb-10 flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <div className="flex flex-col mb-10 gap-4 items-center justify-between sm:flex-row">
           <h2 className="mb-8 text-3xl font-semibold tracking-tight text-[#030b1a] sm:mb-12 sm:text-3xl">
             How We Work
           </h2>
-          <div className="flex items-center gap-2 rounded-full bg-gray-100 p-1 text-sm">
+          <MotionCard className="flex p-1 gap-2 items-center text-sm bg-gray-100 rounded-full">
             <button
               onClick={() => setView('simple')}
               className={`rounded-full px-4 py-1 transition-all ${
@@ -97,7 +99,7 @@ const HowWeWorkTimeline: FC = () => {
             >
               Visual View
             </button>
-          </div>
+          </MotionCard>
         </div>
 
         {/* 2-Column Timeline Layout */}
@@ -124,7 +126,7 @@ const HowWeWorkTimeline: FC = () => {
               }, [inView]);
 
               return (
-                <motion.section
+                <MotionSection
                   key={step.id}
                   ref={ref}
                   id={`step-${step.id}`}
@@ -134,24 +136,24 @@ const HowWeWorkTimeline: FC = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="scroll-mt-24"
                 >
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent)] shadow ring-2 ring-white">
+                  <div className="flex mb-4 gap-3 items-center">
+                    <span className="h-8 w-8 items-center justify-center shadow ring-2 ring-white rounded-full inline-flex bg-[var(--accent)]">
                       <Icon className="h-4 w-4 text-white" />
                     </span>
                     <h3 className="text-xl font-semibold text-[#030b1a]">{step.title}</h3>
                   </div>
-                  <p className="mb-6 text-gray-600">{step.text}</p>
+                  <RevealText as='p' className="mb-6 text-gray-600">{step.text}</RevealText>
 
                   {view === 'visual' && (
                     <div className="mt-4">{renderMockUI(step.id, loading)}</div>
                   )}
-                </motion.section>
+                </MotionSection>
               );
             })}
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

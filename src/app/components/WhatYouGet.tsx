@@ -1,8 +1,11 @@
 'use client';
 
 import { FC } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Activity, PenTool, Code2 } from 'lucide-react';
+import MotionCard from './builder/MotionCard';
+import RevealText from './builder/RevealText';
 
 const items = [
   {
@@ -37,46 +40,46 @@ const cardVariants = {
 
 const WhatYouGet: FC = () => {
   return (
-    <section
+    <MotionSection
       id="what-you-get"
-      className="relative bg-gradient-to-b from-white via-white/90 to-white px-6 py-24 sm:py-32 w-full sm:w-2/3 mx-auto text-left"
+      className="relative w-full px-6 py-24 mx-auto text-left bg-gradient-to-b from-white to-white via-white/90 sm:py-32 sm:w-2/3"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="h-full w-full bg-grid-small [mask-image:radial-gradient(white,transparent_85%)] opacity-5" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl text-left">
-        <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--accent)]">
+      <div className="relative z-10 max-w-6xl mx-auto text-center md:text-left">
+        <h2 className="mb-4 text-sm font-medium tracking-wider uppercase text-[var(--accent)]">
           Built for Bold Founders
         </h2>
         <p className="mb-12 text-3xl font-semibold tracking-tight text-[#030b1a] sm:text-4xl">
           What You Get
         </p>
 
-        <div className="grid max-w-5xl gap-10 px-4 sm:grid-cols-3 sm:gap-14 mx-auto text-center">
+        <div className="grid max-w-5xl px-4 mx-auto gap-10 text-center sm:grid-cols-3 sm:gap-14">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={item.title}
-                className="group rounded-2xl bg-white/60 backdrop-blur p-6 shadow-md ring-1 ring-gray-200 hover:shadow-xl transition-all duration-300"
+                className="p-6 bg-white/60 shadow-md ring-1 ring-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 group backdrop-blur"
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={i}
               >
-                <div className="mb-4 inline-flex items-center justify-center rounded-full bg-[var(--accent)] p-4 shadow-md group-hover:scale-110 transition-transform">
+                <MotionCard className="mb-4 p-4 items-center justify-center shadow-md rounded-full transition-transform inline-flex bg-[var(--accent)] group-hover:scale-110">
                   <Icon className="h-6 w-6 text-white" />
-                </div>
+                </MotionCard>
                 <h3 className="mb-2 text-xl font-semibold text-[var(--accent)]">{item.title}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
+                <RevealText as='p' className="text-sm text-gray-700 leading-relaxed">{item.text}</RevealText>
               </motion.div>
             );
           })}
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

@@ -1,9 +1,18 @@
+import MotionCard from '@/components/MotionCard';
+import MotionSection from '@/components/MotionSection';
+import { motion } from 'framer-motion';
 import type { Metadata } from "next";
+
 import type { ReactNode } from 'react';
+
 import { Inter } from 'next/font/google';
+
 import { Dancing_Script } from 'next/font/google';
+
 import Providers from './providers/ThemeProvider';
+
 import "./globals.css";
+
 import ScrollProgressBar from './components/ScrollProgressBar';
 
 const inter = Inter({ 

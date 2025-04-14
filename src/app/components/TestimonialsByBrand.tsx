@@ -2,7 +2,10 @@
 
 import { FC } from 'react';
 import Image from 'next/image';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
+import MotionCard from './builder/MotionCard';
+import RevealText from './builder/RevealText';
 
 const testimonials = [
   {
@@ -41,44 +44,44 @@ const child = {
 
 const TestimonialsByBrand: FC = () => {
   return (
-    <motion.section
-      className="bg-white px-6 py-24 text-left w-full sm:w-2/3 justify-center mx-auto"
+    <MotionSection
+      whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full px-6 py-24 mx-auto justify-center text-center md:text-left bg-white sm:w-2/3"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={container}
     >
       <motion.h2
-        className="text-3xl font-semibold text-[#030b1a] mb-4"
+        className="mb-4 text-3xl font-semibold text-[#030b1a]"
         variants={child}
       >
         What Our Clients Say
       </motion.h2>
       <motion.p
-        className="mx-auto  text-base text-gray-600 mb-12"
+        className="mx-auto mb-12 text-base text-gray-600"
         variants={child}
       >
         Trusted by founders, operators, and innovators across industries.
       </motion.p>
 
-      <div className="mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
+      <motion.div className="grid max-w-6xl mx-auto gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map(({ logo, quote, name, role }, i) => (
           <motion.div
             key={i}
-            className="rounded-lg bg-white p-6 text-left shadow ring-1 ring-gray-200"
+            className="p-6 text-left bg-white shadow ring-1 ring-gray-200 rounded-lg"
             variants={child}
           >
-            <div className="mb-4 h-8 w-28 relative">
+            <div className="relative h-8 w-28 mb-4">
               <Image src={logo} alt={name} fill className="object-contain" />
             </div>
-            <p className="text-gray-700 italic mb-4 text-sm">“{quote}”</p>
+            <RevealText as='p' className="mb-4 text-gray-700 text-sm italic">“{quote}”</RevealText>
             <div className="text-sm text-gray-500 font-medium">
               {name} <span className="text-gray-400">•</span> {role}
             </div>
           </motion.div>
         ))}
-      </div>
-    </motion.section>
+      </motion.div>
+    </MotionSection>
   );
 };
 

@@ -1,7 +1,10 @@
 'use client';
 
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Clock, Wrench, Rocket } from 'lucide-react';
+import MotionCard from './builder/MotionCard';
+import RevealText from './builder/RevealText';
 
 const steps = [
   {
@@ -23,14 +26,14 @@ const steps = [
 
 export default function LaunchPlanSteps() {
   return (
-    <section className="bg-white/10 py-24 px-6" id="launch-plan">
-      <div className="mx-auto w-full sm:w-2/3">
+    <MotionSection whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="py-24 px-6 bg-white/10" id="launch-plan">
+      <div className="w-full mx-auto sm:w-2/3">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-3xl font-semibold text-[#030b1a] sm:text-3xl mb-12 text-left"
+          className="mb-12 text-2xl md:text-3xl font-semibold text-center md:text-left text-[#030b1a] sm:text-3xl"
         >
           Your 90-Day Launch Roadmap
         </motion.h2>
@@ -45,15 +48,15 @@ export default function LaunchPlanSteps() {
               viewport={{ once: true }}
               className="mb-12 mr-6 text-right"
             >
-              <span className="absolute -right-3 flex flex-col md:flex-row h-6 w-6 items-center justify-center rounded-full bg-[var(--accent)] ring-8 ring-white shadow-md">
+              <span className="absolute flex flex-col h-6 w-6 items-center justify-center ring-8 ring-white shadow-md rounded-full -right-3 md:flex-row bg-[var(--accent)]">
                 <Icon className="text-white" size={14} />
               </span>
-              <h3 className="text-xl font-semibold text-[#030b1a] mb-1">{title}</h3>
-              <p className="text-lg text-gray-600">{description}</p>
+              <h3 className="mb-1 text-xl font-semibold text-[#030b1a]">{title}</h3>
+              <RevealText as='p' className="text-lg text-gray-600">{description}</RevealText>
             </motion.li>
           ))}
         </ol>
       </div>
-    </section>
+    </MotionSection>
   );
 }

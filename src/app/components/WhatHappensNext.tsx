@@ -1,9 +1,12 @@
 'use client';
 
 import { FC } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Lightbulb, MailCheck, Rocket } from 'lucide-react';
 import Image from 'next/image';
+import MotionCard from './builder/MotionCard';
+import RevealText from './builder/RevealText';
 
 const steps = [
   {
@@ -46,21 +49,21 @@ const itemVariants = {
 
 const WhatHappensNextSection: FC = () => {
   return (
-    <motion.section
+    <MotionSection
       id="next"
-      className="relative z-0 bg-gradient-to-b from-white via-white/90 to-white px-4 sm:px-6 pt-24 pb-32"
+      className="relative z-0 px-4 pt-24 pb-32 bg-gradient-to-b from-white to-white via-white/90 sm:px-6"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
-      <div className="absolute inset-0 pointer-events-none">
+      <motion.div className="absolute inset-0 pointer-events-none">
         <div className="h-full w-full bg-grid-small [mask-image:radial-gradient(white,transparent_85%)] opacity-5" />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-4xl bg-white/80 backdrop-blur-sm p-6 sm:p-10 shadow-xl ring-1 ring-gray-200 rounded-3xl">
+      <motion.div className="relative z-10 max-w-4xl mx-auto p-6 bg-white/80 shadow-xl ring-1 ring-gray-200 rounded-3xl backdrop-blur-sm sm:p-10">
         <motion.h2
-          className="text-center text-3xl sm:text-4xl font-bold tracking-tight text-[#030b1a] mb-12"
+          className="mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl text-[#030b1a]"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -69,7 +72,7 @@ const WhatHappensNextSection: FC = () => {
         </motion.h2>
 
         <motion.ol
-          className="relative space-y-14 border-l border-gray-200 pl-6"
+          className="relative pl-6 space-y-14 border-l border-gray-200"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -80,11 +83,11 @@ const WhatHappensNextSection: FC = () => {
             return (
               <motion.li
                 key={i}
-                className="relative flex flex-col sm:flex-row items-start gap-4"
+                className="relative flex flex-col gap-4 items-start sm:flex-row"
                 variants={itemVariants}
               >
                 <motion.div
-                  className="absolute left-[-13px] top-1 rounded-full bg-[var(--accent)] p-2 text-white shadow-md"
+                  className="absolute p-2 text-white shadow-md rounded-full left-[-13px] top-1 bg-[var(--accent)]"
                   initial={{ rotate: -30, scale: 0.5 }}
                   whileInView={{ rotate: 0, scale: 1 }}
                   transition={{ duration: 0.5, delay: i * 0.2 }}
@@ -92,12 +95,12 @@ const WhatHappensNextSection: FC = () => {
                   <Icon className="h-5 w-5" />
                 </motion.div>
 
-                <div className="ml-8 flex-1">
-                  <div className="flex items-center gap-3 mb-2">
+                <div className="flex-1 ml-8">
+                  <div className="flex mb-2 gap-3 items-center">
   
                     <h3 className="text-lg font-semibold text-[#030b1a]">{step.title}</h3>
                   </div>
-                  <p className="text-sm sm:text-base text-gray-700">{step.text}</p>
+                  <RevealText as='p' className="text-sm text-gray-700 sm:text-base">{step.text}</RevealText>
                 </div>
               </motion.li>
             );
@@ -105,36 +108,36 @@ const WhatHappensNextSection: FC = () => {
         </motion.ol>
 
         {/* Inline CTA Form */}
-        <div className="mt-16 border-t pt-8">
-          <h4 className="text-xl font-semibold text-[#030b1a] mb-4 text-center">
+        <div className="mt-16 pt-8 border-t">
+          <h4 className="mb-4 text-xl font-semibold text-center text-[#030b1a]">
             Ready to start? Let’s talk.
           </h4>
-          <form className="grid gap-4 sm:grid-cols-2 max-w-2xl mx-auto">
+          <form className="grid max-w-2xl mx-auto gap-4 sm:grid-cols-2">
             <input
               type="text"
               placeholder="Your name"
-              className="border border-gray-300 rounded-md px-4 py-2"
+              className="px-4 py-2 border border-gray-300 rounded-md"
             />
             <input
               type="email"
               placeholder="Email address"
-              className="border border-gray-300 rounded-md px-4 py-2"
+              className="px-4 py-2 border border-gray-300 rounded-md"
             />
             <textarea
               placeholder="Tell us about your idea"
-              className="border border-gray-300 rounded-md px-4 py-2 sm:col-span-2"
+              className="px-4 py-2 border border-gray-300 rounded-md sm:col-span-2"
               rows={4}
             />
             <button
               type="submit"
-              className="bg-[var(--accent)] text-white rounded-md px-6 py-2 hover:bg-blue-700 transition sm:col-span-2"
+              className="px-6 py-2 text-white rounded-md hover:bg-blue-700 transition bg-[var(--accent)] sm:col-span-2"
             >
               Send Message
             </button>
           </form>
         </div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </MotionSection>
   );
 };
 

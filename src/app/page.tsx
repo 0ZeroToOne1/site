@@ -1,5 +1,7 @@
 'use client';
 
+import MotionCard from '@/components/MotionCard';
+import MotionSection from '@/components/MotionSection';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -30,7 +32,7 @@ import {
 
 export default function HomePage() {
   return (
-    <main className="font-sans subpixel-antialiased bg-white tw-text-gray-900">
+    <main className="font-sans bg-white subpixel-antialiased tw-text-gray-900">
       {/* Header */}
       <SiteHeader />
 
@@ -69,7 +71,7 @@ export default function HomePage() {
       <CallToActionSection />
 
       {/* Footer */}
-      <footer className="py-6 tw-text-center tw-text-sm text-white bg-[#030b1a] flex justify-center mx-auto">
+      <footer className="flex py-6 mx-auto justify-center text-white tw-text-center tw-text-sm bg-[#030b1a]">
         © 2025 ZeroToOne • Built with clarity
       </footer>
     </main>

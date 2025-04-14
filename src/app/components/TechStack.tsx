@@ -2,6 +2,7 @@
 'use client';
 
 import { FC, useState } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import {
@@ -61,18 +62,18 @@ const TechStack: FC = () => {
   };
 
   return (
-    <motion.section
-      className="bg-white px-6 py-16 pt-2 text-center md:text-left w-full mx-auto"
+    <MotionSection
+      className="w-full px-6 py-16 pt-2 mx-auto text-center bg-white md:text-left"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <h3 className="mb-6 text-sm uppercase font-semibold text-gray-400 tracking-widest text-center">
+      <h3 className="mb-6 text-sm font-semibold text-gray-400 tracking-widest text-center uppercase">
         Our Tech Stack
       </h3>
 
-      <div className="mb-6 flex justify-center gap-3">
+      <motion.div className="flex mb-6 gap-3 justify-center">
         <button
           onClick={() => setView('grid')}
           className={clsx(
@@ -95,11 +96,11 @@ const TechStack: FC = () => {
         >
           List View
         </button>
-      </div>
+      </motion.div>
 
       {Object.entries(sections).map(([section, tools], i) => (
         <div key={section} className="mb-10">
-          <h4 className="text-xs font-medium text-gray-500 mb-2 flex justify-center mx-auto">
+          <h4 className="flex mb-2 mx-auto justify-center text-xs font-medium text-gray-500">
             {section}
           </h4>
           <motion.div
@@ -145,7 +146,7 @@ const TechStack: FC = () => {
           </motion.div>
         </div>
       ))}
-    </motion.section>
+    </MotionSection>
   );
 };
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send } from 'lucide-react';
 import Link from 'next/link';
@@ -47,19 +48,19 @@ const FloatingCTA: FC<Props> = ({ alwaysVisibleAfter, until }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.4 }}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed z-50 bottom-6 right-6"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-2">
+          <motion.div className="flex flex-col gap-2 items-center sm:flex-row">
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
+              className="px-6 py-3 gap-2 items-center text-sm font-medium text-white shadow-lg rounded-full hover:-translate-y-1 hover:shadow-xl transition-transform inline-flex bg-[var(--accent)]"
             >
               <Send className="h-4 w-4" />
               <span>Share Your Idea</span>
             </Link>
 
         
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

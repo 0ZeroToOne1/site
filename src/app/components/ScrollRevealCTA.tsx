@@ -1,6 +1,8 @@
 'use client';
 
+import MotionCard from './builder/MotionCard';
 import { FC, useEffect, useState } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Rocket } from 'lucide-react';
@@ -35,7 +37,7 @@ const ScrollRevealCTA: FC<Props> = ({ enterId, exitId }) => {
   return (
     <>
       {/* Invisible tracking anchors */}
-      <div id={enterId} ref={enterRef} className="h-px w-full" />
+      <motion.div id={enterId} ref={enterRef} className="h-px w-full" />
 
 
       <AnimatePresence>
@@ -46,11 +48,11 @@ const ScrollRevealCTA: FC<Props> = ({ enterId, exitId }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.4 }}
-            className="fixed bottom-6 right-6 z-50"
+            className="fixed z-50 bottom-6 right-6"
           >
             <Link
               href="#contact"
-              className="inline-flex flex-col md:flex-row items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
+              className="flex-col px-6 py-3 gap-2 items-center text-sm font-medium text-white shadow-lg rounded-full hover:-translate-y-1 hover:shadow-xl transition-transform inline-flex md:flex-row bg-[var(--accent)]"
             >
               <Rocket className="h-4 w-4" />
               <span>Start Your Build</span>

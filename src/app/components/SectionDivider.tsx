@@ -1,6 +1,8 @@
 'use client';
 
+import MotionCard from './builder/MotionCard';
 import { useRef, useEffect } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion, useInView } from 'framer-motion';
 import clsx from 'clsx';
 

@@ -1,5 +1,6 @@
 'use client';
 
+import RevealText from './builder/RevealText';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Send } from 'lucide-react';
@@ -29,7 +30,7 @@ export default function ShareYourIdeaModal() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="group inline-flex flex-col md:flex-row items-center justify-center gap-2 rounded-md bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white shadow-md transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] hover:shadow-lg"
+          className="flex-col px-6 py-3 gap-2 items-center justify-center text-sm font-medium text-white shadow-md rounded-md hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] hover:shadow-lg transition-transform duration-200 ease-out group inline-flex md:flex-row bg-[var(--accent)]"
         >
           <span>Share Your Idea</span>
           <motion.div
@@ -48,7 +49,7 @@ export default function ShareYourIdeaModal() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+              className="fixed z-50 bg-black/40 inset-0 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -56,7 +57,7 @@ export default function ShareYourIdeaModal() {
 
             {/* Modal Wrapper */}
             <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
+              className="fixed z-50 flex p-2 items-center justify-center inset-0 sm:p-4 overflow-y-auto"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
@@ -64,20 +65,20 @@ export default function ShareYourIdeaModal() {
             >
               {/* 🌈 Aurora Glow */}
               <motion.div
-                className="absolute -inset-0 z-0 pointer-events-none"
+                className="absolute z-0 -inset-0 pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-400/30 via-pink-300/20 to-transparent blur-3xl" />
+                <motion.div className="absolute h-96 w-96 from-purple-400/30 to-transparent rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] via-pink-300/20 blur-3xl" />
               </motion.div>
 
               {/* Modal Content */}
-              <div className="relative w-full max-w-[90vw] sm:max-w-md rounded-lg border border-white/10 bg-white p-4 sm:p-6 shadow-2xl z-10 overflow-hidden">
+              <MotionCard className="relative z-10 w-full p-4 bg-white border border-white/10 shadow-2xl rounded-lg max-w-[90vw] sm:max-w-md sm:p-6 overflow-hidden">
                 {/* ❌ Close */}
                 <button
                   onClick={() => setOpen(false)}
-                  className="absolute top-4 right-4 text-gray-400 transition-colors hover:text-gray-600"
+                  className="absolute text-gray-400 hover:text-gray-600 transition-colors top-4 right-4"
                   aria-label="Close modal"
                 >
                   ✕
@@ -97,19 +98,19 @@ export default function ShareYourIdeaModal() {
 
                 {/* Avatar + Intro */}
                 <motion.div
-                  className="mb-6 flex flex-col sm:flex-row items-center gap-3 rounded-md bg-white p-2 sm:p-3 text-center sm:text-left"
+                  className="flex flex-col mb-6 p-2 gap-3 items-center text-center bg-white rounded-md sm:flex-row sm:p-3 sm:text-left"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-full shrink-0">
+                  <MotionCard className="relative h-20 w-20 rounded-full sm:h-24 sm:w-24 overflow-hidden shrink-0">
                     <Image
                       src="/founder-avatar.jpg"
                       alt="Founder"
                       fill
                       className="object-cover"
                     />
-                  </div>
+                  </MotionCard>
                   <p className="text-xs text-gray-700">
                     Hi there, I’m Frank! I’m genuinely thrilled to learn about your vision and can’t wait to help you transform your bold idea into a thriving, launch-ready MVP.
                   </p>
@@ -157,9 +158,9 @@ export default function ShareYourIdeaModal() {
                           value={field.value}
                           onChange={(e) => field.onChange(e.target.value)}
                           placeholder={field.placeholder}
-                          className="peer w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-[#030b1a] placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+                          className="w-full px-3 py-2 text-sm bg-transparent border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--accent)] peer text-[#030b1a] placeholder-transparent"
                         />
-                        <label className="mb-2 pointer-events-none absolute left-3 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-4.5 peer-focus:text-xs peer-focus:text-[#030b1a]">
+                        <label className="absolute mb-2 text-sm text-gray-500 transition-all pointer-events-none left-3 top-2 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-4.5 peer-focus:text-xs peer-focus:text-[#030b1a]">
                           {field.label}
                         </label>
                       </motion.div>
@@ -176,9 +177,9 @@ export default function ShareYourIdeaModal() {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Your Message"
-                        className="peer w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-[#030b1a] placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+                        className="w-full px-3 py-2 text-sm bg-transparent border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--accent)] peer text-[#030b1a] placeholder-transparent"
                       />
-                      <label className="pointer-events-none absolute left-3 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-4.5 peer-focus:text-xs peer-focus:text-[#030b1a]">
+                      <label className="absolute text-sm text-gray-500 transition-all pointer-events-none left-3 top-2 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-4.5 peer-focus:text-xs peer-focus:text-[#030b1a]">
                         Message
                       </label>
                     </motion.div>
@@ -187,7 +188,7 @@ export default function ShareYourIdeaModal() {
                   {/* Submit */}
                   <motion.button
                     type="submit"
-                    className="mt-6 w-full rounded-md bg-[var(--accent)] px-5 py-2 text-sm font-medium text-white shadow-lg transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] flex items-center justify-center gap-2"
+                    className="flex w-full mt-6 px-5 py-2 gap-2 items-center justify-center text-sm font-medium text-white shadow-lg rounded-md hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] transition-transform duration-200 bg-[var(--accent)]"
                     whileHover={{ scale: 1.02 }}
                   >
                     Send
@@ -201,7 +202,7 @@ export default function ShareYourIdeaModal() {
                     )}
                   </motion.button>
                 </form>
-              </div>
+              </MotionCard>
             </motion.div>
           </>
         )}

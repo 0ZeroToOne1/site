@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Check, X, Info } from 'lucide-react';
 
@@ -158,15 +159,15 @@ export default function CompareFeaturesTable() {
   const [hoverCol, setHoverCol] = useState<number | null>(null);
 
   return (
-    <section className="px-6 py-24 bg-white border-t" id="compare">
-      <div className="mx-auto max-w-6xl text-center md:text-left mb-12">
-        <h2 className="text-3xl font-bold text-[#030b1a] mb-2">Feature Comparison</h2>
-        <p className="text-gray-600 text-sm max-w-xl mx-auto">
+    <MotionSection className="px-6 py-24 bg-white border-t" id="compare">
+      <div className="max-w-6xl mx-auto mb-12 text-center md:text-left">
+        <RevealText className="mb-2 text-3xl font-bold text-[#030b1a]">Feature Comparison</RevealText>
+        <p className="max-w-xl mx-auto text-gray-600 text-sm">
           Each tier builds on the one before it — more features, more polish.
         </p>
-      </div>
+      </MotionCard>
 
-      <div className="overflow-x-auto border rounded-lg">
+      <MotionCard className="border rounded-lg overflow-x-auto">
         <table className="min-w-full text-sm text-left border-collapse">
           <thead>
             <tr className="bg-gray-50 border-b text-[#030b1a]">
@@ -193,7 +194,7 @@ export default function CompareFeaturesTable() {
                 </tr>
                 {group.features.map((feature, i) => (
                   <tr key={feature.label} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="p-4 text-gray-700 flex flex-col md:flex-row items-start gap-2">
+                    <td className="flex flex-col p-4 gap-2 items-start text-gray-700 md:flex-row">
                       {feature.label}
                       <span title={feature.description}>
                         <Info className="h-4 w-4 text-gray-400 hover:text-blue-600 transition" />
@@ -226,7 +227,7 @@ export default function CompareFeaturesTable() {
             ))}
           </tbody>
         </table>
-      </div>
-    </section>
+      </MotionCard>
+    </MotionSection>
   );
 }

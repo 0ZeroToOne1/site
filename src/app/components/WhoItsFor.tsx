@@ -1,8 +1,11 @@
 'use client';
 
 import { FC } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Sparkles, Briefcase, Settings2, Compass } from 'lucide-react';
+import RevealText from './builder/RevealText';
+import MotionCard from './builder/MotionCard';
 
 const items = [
   {
@@ -41,9 +44,9 @@ const child = {
 
 const WhoItsFor: FC = () => {
   return (
-    <motion.section
+    <MotionSection
     id = "who-its-for"
-      className="bg-white px-6 py-24 text-right w-full mx-auto"
+       className="w-full px-6 py-24 mx-auto text-center md:text-right bg-white"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
@@ -51,7 +54,7 @@ const WhoItsFor: FC = () => {
     >
       
       <motion.h2
-        className="mb-4 text-3xl font-semibold text-[#030b1a] w-2/3 jusitfy-center mx-auto"
+        className="w-2/3 mb-4 mx-auto text-3xl font-semibold text-[#030b1a] justify-center"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -60,7 +63,7 @@ const WhoItsFor: FC = () => {
       </motion.h2>
 
       <motion.p
-        className="mb-12 text-right text-gray-600 w-2/3 jusitfy-center mx-auto"
+        className="w-2/3 mb-12 mx-auto text-center md:text-right text-gray-600 jusitfy-center"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
@@ -69,24 +72,24 @@ const WhoItsFor: FC = () => {
       </motion.p>
 
       <motion.div
-        className="mx-auto flex flex-wrap justify-center gap-6 max-w-8xl"
+        className="flex flex-wrap max-w-8xl mx-auto gap-6 justify-center"
         variants={container}
       >
         {items.map(({ title, text, icon: Icon }, index) => (
           <motion.div
             key={index}
             variants={child}
-            className="w-full sm:w-[20rem] mx-4 rounded-lg bg-white p-6 shadow ring-1 ring-gray-200 flex flex-col items-center text-center"
+            className="flex flex-col w-full mx-4 p-6 items-center text-center bg-white shadow ring-1 ring-gray-200 rounded-lg sm:w-[20rem]"
           >
-            <div className="mb-4 text-[#030b1a]">
+            <motion.div className="mb-4 text-[#030b1a]">
               <Icon className="h-8 w-8" />
-            </div>
+            </motion.div>
             <h3 className="mb-2 text-lg font-semibold text-[#030b1a]">{title}</h3>
-            <p className="text-sm text-gray-600">{text}</p>
+            <RevealText as='p' className="text-sm text-gray-600">{text}</RevealText>
           </motion.div>
         ))}
       </motion.div>
-    </motion.section>
+    </MotionSection>
   );
 };
 

@@ -1,8 +1,12 @@
 'use client';
 
+import MotionList from './builder/MotionList';
 import { useState, useRef, useEffect } from 'react';
+import MotionSection from './builder/MotionSection';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { CheckCircle, Star, Rocket, Layers3, Hammer, ChevronDown } from 'lucide-react';
+import RevealText from './builder/RevealText';
+import MotionCard from './builder/MotionCard';
 
 const plans = {
   kickstart: {
@@ -89,20 +93,20 @@ export default function ResponsivePricingLayout() {
   }, [selected]);
 
   return (
-    <section className="px-4 sm:px-6 py-24 bg-white w-full sm:w-2/3 mx-auto" id="pricing">
-      <motion.div className="text-right mb-12">
-        <h2 className="text-3xl font-bold text-[#030b1a]">Productized Pricing Tiers</h2>
-        <p className="text-gray-600 mt-2  mx-auto">
+    <MotionSection className="w-full px-4 py-24 mx-auto bg-white sm:px-6 sm:w-2/3" id="pricing">
+      <motion.div className="mb-12 text-center md:text-right">
+        <RevealText className="text-3xl font-bold text-[#030b1a]">Productized Pricing Tiers</RevealText>
+        <p className="mt-2 mx-auto text-gray-600">
           Each plan is designed for a specific founder stage.
         </p>
       </motion.div>
 
       <div
         ref={tabNavRef}
-        className="relative z-10 mb-6 overflow-x-auto scrollbar-hide flex sm:justify-center gap-2 sm:gap-4 px-1"
+        className="relative z-10 flex mb-6 px-1 gap-2 overflow-x-auto scrollbar-hide sm:justify-center sm:gap-4"
       >
         <motion.div
-          className="absolute top-1/2 -translate-y-1/2 h-9 rounded-full bg-[#030b1a]/10 z-0 transition-all"
+          className="absolute z-0 h-9 rounded-full transition-all top-1/2 -translate-y-1/2 bg-[#030b1a]/10"
           animate={{ left: indicatorStyle.left, width: indicatorStyle.width }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         />
@@ -124,43 +128,43 @@ export default function ResponsivePricingLayout() {
 
       <motion.div
         key={selected}
-        className="max-w-3xl mx-auto rounded-xl border p-6 shadow"
+        className="max-w-3xl mx-auto p-6 border shadow rounded-xl"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -30 }}
         transition={{ duration: 0.4 }}
       >
-        <div className="flex items-center justify-center gap-2 mb-3">
+        <div className="flex mb-3 gap-2 items-center justify-center">
           <Icon className="h-6 w-6 text-blue-600" />
           <h3 className="text-xl font-semibold text-[#030b1a]">{current.title}</h3>
         </div>
 
         {current.badge && (
-          <div className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-700 mb-2">
+          <MotionCard className="inline-block px-3 py-1 mb-2 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full">
             {current.badge}
-          </div>
+          </MotionCard>
         )}
 
-        <p className="text-gray-500 text-sm italic mb-4 flex w-full justify-center border-b-2 border-gray-100 pb-2">
+        <p className="flex w-full mb-4 pb-2 justify-center text-gray-500 text-sm border-b-2 border-gray-100 italic">
           {current.subtitle}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700 mb-4 items-center text-center w-full">
+        <div className="grid grid-cols-1 w-full mb-4 gap-4 items-center text-sm text-gray-700 text-center sm:grid-cols-2">
           <div><strong>Timeline:</strong> {current.timeline}</div>
           <div><strong>Price:</strong> {current.price}</div>
           <div className="col-span-2"><strong>Deliverable:</strong> {current.deliverable}</div>
         </div>
 
-        <ul className="space-y-4">
+        <MotionList className="space-y-4">
           {current.highlights.map((item, i) => {
             const isOpen = expanded[i];
             return (
-              <li key={i}>
+              <motion.li variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} key={i}>
                 <button
                   onClick={() => setExpanded((prev) => ({ ...prev, [i]: !prev[i] }))}
-                  className="w-full flex items-start justify-between text-left text-sm text-[#030b1a] font-medium"
+                  className="flex w-full items-start justify-between text-left text-sm font-medium text-[#030b1a]"
                 >
-                  <div className="flex items-center gap-2 text-left">
+                  <div className="flex gap-2 items-center text-left">
                     <CheckCircle className="h-4 w-4 text-blue-600" />
                     {item.label}
                   </div>
@@ -171,7 +175,7 @@ export default function ResponsivePricingLayout() {
                 <AnimatePresence>
                   {isOpen && (
                     <motion.p
-                      className="mt-2 text-xs text-gray-600 pl-6 pr-2"
+                      className="mt-2 pl-6 pr-2 text-xs text-gray-600"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
@@ -180,11 +184,11 @@ export default function ResponsivePricingLayout() {
                     </motion.p>
                   )}
                 </AnimatePresence>
-              </li>
+              </motion.li>
             );
           })}
-        </ul>
+        </MotionList>
       </motion.div>
-    </section>
+    </MotionSection>
   );
 }

@@ -1,3 +1,4 @@
+
 # ZeroToOne Site
 
 ![Banner](public/banner.png)
@@ -16,10 +17,11 @@ Welcome to the **ZeroToOne** site repository! This is the official site for the 
 4. [Getting Started](#getting-started)  
 5. [Usage](#usage)  
 6. [Project Structure](#project-structure)  
-7. [Recent Updates](#recent-updates)  
-8. [Suggestions & “WOW” Factor Ideas](#suggestions--wow-factor-ideas)  
-9. [Contributing](#contributing)  
-10. [License](#license)
+7. [Component System](#component-system)  
+8. [Recent Updates](#recent-updates)  
+9. [Suggestions & “WOW” Factor Ideas](#suggestions--wow-factor-ideas)  
+10. [Contributing](#contributing)  
+11. [License](#license)
 
 ---
 
@@ -114,6 +116,50 @@ zero-to-one-site/
 │  └─ layout.tsx        # Shared layout wrapper
 ├─ package.json         
 └─ README.md
+```
+
+---
+
+## 🧩 ZeroToOne Component System
+
+We’ve built a component library designed to maximize reusability, polish, and animation clarity — powered by Framer Motion + Tailwind.
+
+### ✨ Motion Helpers
+
+| Component         | Description                                                | Example |
+|------------------|------------------------------------------------------------|---------|
+| `<MotionSection />` | Wraps top-level sections with fade + scale scroll animation | `id="features" className="py-24"` |
+| `<MotionCard />`    | Applies hover scaling, drop shadow, and entrance fade    | Great for pricing tiers or case studies |
+| `<MotionList />`    | Adds staggered `li` entrance animation                   | For timelines, bullet features |
+| `<RevealText />`    | Animated fade+lift for text content                     | Used in headings and intro copy |
+
+#### ✅ Usage Examples:
+
+```tsx
+import MotionSection from '@/components/MotionSection';
+import MotionCard from '@/components/MotionCard';
+import MotionList from '@/components/MotionList';
+import RevealText from '@/components/RevealText';
+import { motion } from 'framer-motion';
+
+<MotionSection className="py-24 text-center bg-white">
+  <RevealText className="text-3xl font-bold">
+    Built to Impress. Designed to Scale.
+  </RevealText>
+</MotionSection>
+
+<MotionCard className="p-6 bg-white rounded-xl shadow-md">
+  <h3 className="text-xl font-semibold">Launch Plan</h3>
+</MotionCard>
+
+<MotionList className="space-y-4">
+  <motion.li variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+    ✅ Feature 1
+  </motion.li>
+  <motion.li variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+    ✅ Feature 2
+  </motion.li>
+</MotionList>
 ```
 
 ---
