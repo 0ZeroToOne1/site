@@ -47,15 +47,15 @@ const cardVariants = {
 const CaseStudySection: FC = () => {
   return (
     <motion.section
-    id="case-studies"
-      className="px-6 py-24 text-center bg-white "
+      id="case-studies"
+      className="px-4 sm:px-6 py-20 sm:py-24 text-center bg-white"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
       {/* Title + Icon */}
-      <div className="mx-auto max-w-3xl mb-12">
+      <div className="mx-auto max-w-2xl sm:max-w-3xl mb-10 sm:mb-12">
         <motion.div
           className="mb-4 flex items-center justify-center gap-2 text-[#030b1a]"
           initial={{ opacity: 0, y: 10 }}
@@ -63,11 +63,11 @@ const CaseStudySection: FC = () => {
           transition={{ duration: 0.5 }}
         >
           <Briefcase className="h-6 w-6" />
-          <h2 className="text-3xl font-semibold text-[#030b1a]">Case Studies</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-[#030b1a]">Case Studies</h2>
         </motion.div>
 
         <motion.p
-          className="text-base text-gray-600"
+          className="text-sm sm:text-base text-gray-600 px-2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -76,25 +76,30 @@ const CaseStudySection: FC = () => {
         </motion.p>
       </div>
 
-      {/* Carousel for mobile / Grid for desktop */}
+      {/* Responsive Card Layout */}
       <motion.div
-        className="scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:snap-none mb-2 w-5/6 justify-center mx-auto"
+        className="scrollbar-hide flex snap-x snap-mandatory gap-3 sm:gap-6 overflow-x-auto sm:grid sm:grid-cols-3 sm:overflow-visible sm:snap-none px-1 sm:px-0 mb-8 max-w-full mx-auto"
         variants={containerVariants}
       >
         {cards.map(({ title, description, icon: Icon }, i) => (
           <motion.div
-            key={`card-${i}`}
-            className="min-w-[85%] sm:min-w-0 snap-start shrink-0 p-5 bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition flex flex-col items-start"
-            variants={cardVariants}
-          >
-            <div className="mb-3 text-[#030b1a]">
-              <Icon className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold text-[#030b1a] mb-1">{title}</h3>
-            <p className="text-sm text-gray-700 leading-snug">{description}</p>
-          </motion.div>
+  key={`card-${i}`}
+  whileHover={{ scale: 1.03 }}
+  whileFocus={{ scale: 1.03 }}
+  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+  tabIndex={0}
+  className="min-w-[75%] sm:min-w-0 snap-start shrink-0 p-4 sm:p-5 bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-lg focus:shadow-lg outline-none transition flex flex-col items-start"
+  variants={cardVariants}
+>
+  <div className="mb-2 text-[#030b1a]">
+    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+  </div>
+  <h3 className="text-sm sm:text-base font-semibold text-[#030b1a] mb-1">{title}</h3>
+  <p className="text-xs sm:text-sm text-gray-700 leading-snug">{description}</p>
+</motion.div>
         ))}
       </motion.div>
+
       <ClientLogoMarquee />
     </motion.section>
   );

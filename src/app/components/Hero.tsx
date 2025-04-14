@@ -24,7 +24,7 @@ export default function HeroSection() {
     <motion.section
     id="hero"
     ref={ref}
-    className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white border-b border-red-500 px-4 text-center"
+    className="relative min-h-[90vh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white px-4 text-center"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -37,22 +37,22 @@ export default function HeroSection() {
         className="pointer-events-none absolute top-[19%] left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 select-none"
         style={{ y: watermarkY, opacity: watermarkOpacity }}
       >
-        <span className="text-[20vw] font-black text-gray-300 tracking-tighter leading-none">
-          0<span className="text-[#030b1a]">→</span>1
-        </span>
+<span className="text-[clamp(4rem,20vw,12rem)] font-black text-gray-300 tracking-tighter leading-none block whitespace-nowrap">
+  0<span className="text-[#3b82f6]">→</span>1
+</span>
       </motion.div>
 
       {/* Foreground Content */}
       <div className="relative z-20">
         <motion.h1
           style={{ y: yHeadline, opacity }}
-          className="mb-4 text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-[#030b1a]"
+          className="mb-4 text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-[#030b1a] max-w-[90vw] sm:max-w-3xl mx-auto"
         >
           Turn Bold Ideas Into Launch-Ready Software
         </motion.h1>
         <motion.p
           style={{ y: ySubtext, opacity }}
-          className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 sm:text-xl"
+          className="mx-auto mb-10 max-w-[90vw] sm:max-w-2xl text-lg text-gray-600 sm:text-xl"
         >
           We help visionaries turn raw ideas into real, working products — designed to impress,
           built to scale, and ready to launch.

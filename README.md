@@ -1,4 +1,3 @@
-
 # ZeroToOne Site
 
 ![Banner](public/banner.png)
@@ -8,7 +7,7 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 
-Welcome to the **ZeroToOne** site repository! This project represents our latest iteration of the ZeroToOne brand, showcasing a sleek design, modern layout, and an enhanced user experience that aims to impress visitors and deliver real value.
+Welcome to the **ZeroToOne** site repository! This is the official site for the ZeroToOne brand — a fast, modern, and impressively polished digital experience showcasing our mission, approach, and services.
 
 ## Table of Contents
 1. [Project Overview](#project-overview)  
@@ -26,7 +25,7 @@ Welcome to the **ZeroToOne** site repository! This project represents our latest
 
 ## Project Overview
 
-ZeroToOne is a site dedicated to presenting our brand and offerings with clarity and impact. We focus on high-quality content, polished aesthetics, and a straightforward, enjoyable user experience.
+ZeroToOne is a digital product studio helping founders go from raw idea to launch-ready MVP. Our site is designed to reflect that — built for clarity, conversion, and visual delight.
 
 ---
 
@@ -37,18 +36,23 @@ We’ve built the ZeroToOne site on a modern and flexible stack to ensure great 
 - **Framework**: [Next.js](https://nextjs.org/)  
 - **Library**: [React](https://reactjs.org/)  
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)  
-- **Server/Runtime**: [Node.js](https://nodejs.org/)  
-- **Build & Deployment**: Depending on your hosting environment (e.g., Vercel, Netlify, AWS)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)  
+- **Carousel**: [Embla Carousel](https://www.embla-carousel.com/)  
+- **Icons**: [Lucide React](https://lucide.dev/)  
+- **Build & Deployment**: Vercel
 
 ---
 
 ## Features
 
-- **Modern Responsive Layout** – Looks great on all devices, from mobile to desktop.  
-- **Enhanced Performance** – Optimized images and code-splitting for faster load times.  
-- **User-Friendly Navigation** – Clear, intuitive menus and calls to action.  
-- **Brand Consistency** – Cohesive visuals and messaging throughout.  
-- **Accessibility & SEO** – Basic accessibility measures and SEO best practices.
+- **Responsive Productized Pricing Layout** — Tabbed mobile-first UI with animated highlights
+- **Framer Motion Animations** — Scroll-triggered fade-ins, floating effects, and CTA reveals
+- **Parallax Hero Section** — With interactive watermark and animated scroll cue
+- **Client Logo Marquee** — Brand row with subtle motion
+- **Modular Components** — All homepage sections are encapsulated React components
+- **Mobile-Optimized Feature Comparison** — Swipeable carousel using Embla + expandable items
+- **Modern Typography and Layout** — Based on Inter, Tailwind's utility-first grid, and layered motion
+- **Dark-on-Light Design** — Clean, airy feel with subtle depth and shadowing
 
 ---
 
@@ -85,7 +89,7 @@ We’ve built the ZeroToOne site on a modern and flexible stack to ensure great 
 
 ## Usage
 
-- **Development**: All source files are located in the `src` (or `app`) folder.  
+- **Development**: Source files are in `app/` and `components/`. Tailwind config and PostCSS enabled.
 - **Production Build**:
    ```bash
    npm run build
@@ -95,7 +99,7 @@ We’ve built the ZeroToOne site on a modern and flexible stack to ensure great 
    yarn build
    ```
 
-- **Deployment**: After building for production, deploy the output folder (e.g., `.next`, `dist`) to your hosting provider.
+- **Deployment**: Deploy via [Vercel](https://vercel.com) or your preferred provider.
 
 ---
 
@@ -103,48 +107,47 @@ We’ve built the ZeroToOne site on a modern and flexible stack to ensure great 
 
 ```plaintext
 zero-to-one-site/
-├─ public/            # Static assets (images, icons, etc.)
-├─ src/               # Source code
-│  ├─ components/     # Shared components
-│  ├─ pages/          # Pages (Next.js)
-│  ├─ styles/         # Global and component-level styles
-│  └─ ...
-├─ package.json
-├─ README.md
-└─ ...
+├─ public/              # Static assets (images, icons, etc.)
+├─ app/                 # Next.js 13+ routing and pages
+│  ├─ components/       # Modular, animated components
+│  ├─ styles/           # Tailwind + global CSS
+│  └─ layout.tsx        # Shared layout wrapper
+├─ package.json         
+└─ README.md
 ```
 
 ---
 
 ## Recent Updates
 
-1. **Visual Overhaul**  
-2. **SEO & Accessibility**  
-3. **Performance Boost**  
-4. **Navigation Enhancements**  
-5. **“WOW” Factor Tweaks**
+- ✅ Scroll-linked navigation & sticky timeline with vertical progress bar
+- ✅ Responsive pricing plan selector with sliding indicator + animated tab content
+- ✅ Interactive “What Happens Next” component with timeline breakdown
+- ✅ Signature-style founder reveal and call-to-action modal
+- ✅ Launch plan carousel with feature descriptions and tier comparisons
 
 ---
 
 ## Suggestions & “WOW” Factor Ideas
 
-- Microinteractions  
-- Dynamic Content  
-- Interactive Visuals  
-- Polished Calls to Action
+- ✨ Signature hero watermark with parallax effect
+- ✨ Animated badges and expanding cards
+- ✨ Scroll-triggered motion on every section
+- ✨ Toggle between tabbed + carousel pricing views
+- ✨ Mobile-first, desktop-enhanced UX architecture
 
 ---
 
 ## Contributing
 
 1. **Fork** this repository  
-2. **Feature Branch**  
-3. **Commit**  
-4. **Push**  
-5. **Pull Request**
+2. **Create a feature branch**  
+3. **Commit** your changes  
+4. **Push** to your fork  
+5. **Submit a pull request**
 
 ---
 
 ## License
 
-MIT License (or whichever applies)
+MIT License

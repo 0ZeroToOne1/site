@@ -58,7 +58,7 @@ const WhatYouGet: FC = () => {
                 <div className="mb-4 inline-flex items-center justify-center rounded-full bg-[var(--accent)] p-3 shadow-sm">
                   <Icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold tracking-tight">{item.title}</h3>
+                <h3 className="mb-2 text-xl font-semibold tracking-tight text-[var(--accent)]">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-gray-600 line-clamp-3">
                   {item.text}
                 </p>

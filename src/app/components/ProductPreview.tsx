@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const ProductPreview: FC = () => {
   return (
     <motion.section
-      className="relative bg-white/10 px-6 py-24 text-center overflow-hidden"
+      className="relative bg-white/10 px-6 py-8 md:py-24 text-center md:text-left overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -21,7 +21,7 @@ const ProductPreview: FC = () => {
         </p>
       </div>
 
-      <div className="mx-auto flex flex-wrap justify-center gap-12 max-w-6xl">
+      <div className="mx-auto flex flex-col md:flex-row flex-wrap justify-center gap-12 max-w-6xl mx-auto">
         {/* MacBook Frame */}
         <motion.div
           className="w-full max-w-2xl overflow-hidden rounded-2xl border border-gray-200 shadow-md"
@@ -38,7 +38,7 @@ const ProductPreview: FC = () => {
 
         {/* iPhone Frame */}
         <motion.div
-          className="w-[260px] overflow-hidden rounded-[2rem] border border-gray-200 shadow flex items-center justify-center"
+          className="w-[260px] overflow-hidden rounded-[2rem] border border-gray-200 shadow flex flex-col md:flex-row items-center justify-center mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}

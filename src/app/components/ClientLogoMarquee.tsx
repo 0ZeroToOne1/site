@@ -20,10 +20,10 @@ const ClientLogoMarquee: FC = () => {
   return (
     <section
       ref={ref}
-      className="relative bg-white px-6 py-16 pb-8 overflow-hidden"
+      className="relative bg-white px-6 py-16 pb-2 md:pb-8 overflow-hidden"
     >
-      <div className="text-center mb-8">
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400">
+      <div className="text-center md:text-left mb-8">
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 flex justify-center">
           Trusted by forward-thinkers
         </h2>
       </div>
@@ -43,13 +43,13 @@ const ClientLogoMarquee: FC = () => {
           transition={{
             repeat: Infinity,
             ease: 'linear',
-            duration: 40,
+            duration: 20,
           }}
         >
           {logos.concat(logos).map((logo, i) => (
             <div
               key={i}
-              className="flex items-center justify-center min-w-[120px] opacity-70 transition hover:opacity-100 grayscale hover:grayscale-0"
+              className="flex flex-col md:flex-row items-center justify-center min-w-[120px] opacity-70 transition hover:opacity-100 grayscale hover:grayscale-0"
             >
               <Image
                 src={logo.src}

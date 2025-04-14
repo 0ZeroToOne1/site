@@ -19,7 +19,7 @@ const BuildMock = ({ loading = false }: Props) => {
         <div className="mb-2 text-xs text-gray-400">Terminal</div>
         <pre>
           <code>
-            $ rails generate scaffold Project name:string status:boolean{'\n'}
+            $ rails generate scaffold Project{'\n'}
             ✅ Migration created successfully{'\n'}
             ✅ Controller + views ready{'\n'}
             ⚡ Launch server with `bin/dev`

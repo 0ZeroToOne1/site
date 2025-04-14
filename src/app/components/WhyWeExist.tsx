@@ -24,7 +24,7 @@ export default function WhyWeExist() {
     <section
       id="why-we-exist"
       ref={sectionRef}
-      className="relative py-24 bg-white sm:py-32 border-t border-gray-100"
+      className="relative py-24 bg-white sm:py-32 border-t border-gray-100 px-6"
     >
       {/* Horizontal scroll progress bar */}
       <motion.div

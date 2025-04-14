@@ -34,7 +34,7 @@ const pillars = [
 
 const FivePillars: FC = () => {
   return (
-    <section className="bg-white/10 px-6 py-24">
+    <section className="bg-white/10 px-6 py-8 md: py-24">
       <div className="mx-auto max-w-5xl text-center mb-16">
         <h2 className="text-3xl font-bold text-[#030b1a] tracking-tight mb-2">
           What We Believe

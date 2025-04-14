@@ -31,7 +31,7 @@ const WhatHappensNextModal: FC = () => {
       {/* Trigger */}
       <button
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-white to-gray-100 px-6 py-3 text-sm text-gray-800 shadow transition-all duration-300 ease-out hover:scale-105 hover:shadow-md"
+        className="inline-flex flex-col md:flex-row items-center gap-2 rounded-full bg-gradient-to-r from-white to-gray-100 px-6 py-3 text-sm text-gray-800 shadow transition-all duration-300 ease-out hover:scale-105 hover:shadow-md"
       >
         What Happens Next?
       </button>
@@ -40,7 +40,7 @@ const WhatHappensNextModal: FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
+            className="fixed inset-0 z-50 flex flex-col md:flex-row items-center justify-center bg-black/40 backdrop-blur-sm px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -77,7 +77,7 @@ const WhatHappensNextModal: FC = () => {
                   return (
                     <motion.li
                       key={i}
-                      className="flex items-start gap-4"
+                      className="flex flex-col md:flex-row items-start gap-4"
                       variants={{
                         hidden: { opacity: 0, y: 10 },
                         visible: { opacity: 1, y: 0 },
@@ -96,7 +96,7 @@ const WhatHappensNextModal: FC = () => {
               </motion.ol>
 
               {/* CTA at bottom */}
-              <div className="mt-8 text-center">
+              <div className="mt-8 text-center md:text-left">
                 <Link
                   href="#contact"
                   onClick={() => setIsOpen(false)}

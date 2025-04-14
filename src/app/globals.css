@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 @import "tailwindcss";
 
 /* ---------------------------
@@ -15,6 +16,7 @@
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-signature: 'Dancing Script', cursive;
 }
 
 /* ---------------------------

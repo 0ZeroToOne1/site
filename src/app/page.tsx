@@ -4,24 +4,26 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import HowWeWorkTimeline from './components/HowWeWorkTimeline';
-import WhatYouGet from './components/WhatYouGet';
-import FloatingCTA from './components/FloatingCTA';
-import WhatHappensNext from './components/WhatHappensNext';
-import FivePillars from './components/FivePillars'; // Ensure the file exists at this path or adjust the path accordingly
-import CaseStudySection from './components/CaseStudySection';
-import CallToActionSection from './components/CallToActionSection';
-import WhoItsFor from './components/WhoItsFor';
-import ProductPreview from './components/ProductPreview';
-import TechStack from './components/TechStack';
-import TestimonialsByBrand from './components/TestimonialsByBrand';
-import Hero from './components/Hero';
-import FoundersSection from './components/FoundersSection';
-import LaunchPlanSteps from './components/LaunchPlanSteps';
-import FloatingSectionNav from './components/FloatingSectionNav';
-import SiteHeader from './components/SiteHeader';
-import WhyWeExist from './components/WhyWeExist'; // Adjust path as needed
-import RichPricingTable from './components/RichPricingTable';
+import {
+  Hero,
+  SiteHeader,
+  HowWeWorkTimeline,
+  WhatYouGet,
+  WhatHappensNext,
+  FivePillars,
+  CaseStudySection,
+  CallToActionSection,
+  WhoItsFor,
+  ProductPreview,
+  TechStack,
+  TestimonialsByBrand,
+  FoundersSection,
+  LaunchPlanSteps,
+  FloatingCTA,
+  FloatingSectionNav,
+  WhyWeExist,
+  RichPricingTable,
+} from './components';
 
 
 export default function HomePage() {
@@ -62,7 +64,7 @@ export default function HomePage() {
       <CallToActionSection />
 
       {/* Footer */}
-      <footer className="py-6 tw-text-center tw-text-sm text-white bg-[#030b1a]">
+      <footer className="py-6 tw-text-center tw-text-sm text-white bg-[#030b1a] flex justify-center mx-auto">
         © 2025 ZeroToOne • Built with clarity
       </footer>
     </main>

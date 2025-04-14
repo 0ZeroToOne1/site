@@ -1,225 +1,190 @@
-
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { CheckCircle, Star, Rocket, Layers3, Hammer } from 'lucide-react';
-import CompareFeaturesTable from './CompareFeaturesTable';
+import { CheckCircle, Star, Rocket, Layers3, Hammer, ChevronDown } from 'lucide-react';
 
 const plans = {
   kickstart: {
     title: '30-Day Kickstart Kit',
-    subtitle: 'For early founders needing a fast, functional foundation.',
-    badge: 'Entry Tier',
     icon: Hammer,
+    badge: 'Entry Tier',
+    subtitle: 'For early founders needing a fast, functional foundation.',
     timeline: '3–4 weeks',
     price: '$5k–$7k',
     deliverable: 'Simple but solid MVP foundation',
     highlights: [
-      'Product Strategy Workshop',
-      'UI/UX Design (Core Flows & Responsive)',
-      'Rails MVP (Turbo, Tailwind, Postgres)',
+      { label: 'Product Strategy Workshop', description: 'Collaborative planning session to align goals with product scope.' },
+      { label: 'UI/UX Design (Core Flows & Responsive)', description: 'High-fidelity, responsive UI designs covering main user flows.' },
+      { label: 'Rails MVP (Turbo, Tailwind, Postgres)', description: 'A performant backend powered by Rails + Turbo + Tailwind stack.' },
     ],
   },
   sprint: {
     title: '60-Day MVP Sprint',
-    subtitle: 'For fast-moving founders who need to validate and impress early.',
-    badge: 'Best for Launch',
     icon: Rocket,
+    badge: 'Best for Launch',
+    subtitle: 'For fast-moving founders who need to validate and impress early.',
     timeline: '6–8 weeks',
     price: '$12k–$18k',
     deliverable: 'Launch-ready MVP with foundational features',
     highlights: [
-      'Auth, Admin, Dashboards',
-      'Stripe Integration (subscriptions or one-time)',
-      'PDF Export & Sharing (Grover or Puppeteer)',
-      'Fly.io or AWS hosting with CI/CD',
+      { label: 'Auth, Admin, Dashboards', description: 'User authentication, admin controls, and internal dashboards.' },
+      { label: 'Stripe Integration (subscriptions or one-time)', description: 'Subscription or one-time payment flows with admin tools.' },
+      { label: 'PDF Export & Sharing (Grover or Puppeteer)', description: 'Export data or reports to PDF using Grover or Puppeteer.' },
+      { label: 'Fly.io or AWS hosting with CI/CD', description: 'Hosting and deployment of your MVP using CI/CD.' },
     ],
   },
   launchpack: {
     title: '90-Day Launch Pack – Foundation+',
-    subtitle: 'For founders ready to onboard users, raise funds, or go live with v1.',
-    badge: 'Most Popular',
     icon: Star,
+    badge: 'Most Popular',
+    subtitle: 'For founders ready to onboard users, raise funds, or go live with v1.',
     timeline: '10–12 weeks',
     price: '$20k–$30k',
     deliverable: 'Scalable MVP with onboarding & monetization tools',
     highlights: [
-      'Advanced PDF & Report Templates',
-      'Tiered Stripe Billing + Admin Controls',
-      'Custom Field Builder',
-      'Stimulus UX: Modals, Undo, Flash',
-      'In-app Help, Customer Portal, Basic Analytics',
+      { label: 'Advanced PDF & Report Templates', description: 'Custom-styled, dynamic PDF reports with templating.' },
+      { label: 'Tiered Stripe Billing + Admin Controls', description: 'Customizable Stripe plans, trial handling, and admin dashboard.' },
+      { label: 'Custom Field Builder', description: 'Drag-and-drop builder for structured form inputs.' },
+      { label: 'Stimulus UX: Modals, Undo, Flash', description: 'Dynamic frontend UX with modals, toasts, and transitions.' },
+      { label: 'In-app Help, Customer Portal, Basic Analytics', description: 'Customer portal with basic usage metrics and help features.' },
     ],
   },
   studio: {
     title: '180-Day Studio Partnership',
-    subtitle: 'For founders who want it all — MVP, polish, growth features, and support.',
-    badge: null,
     icon: Layers3,
+    subtitle: 'For founders who want it all — MVP, polish, growth features, and support.',
     timeline: '5–6 months',
     price: '$50k–$75k',
     deliverable: 'End-to-end product with scale & polish built-in',
     highlights: [
-      'Full Brand Identity (Logo, Fonts, PDF Styling)',
-      'Multi-tenant SaaS, Teams + Roles',
-      'Feature Flags + Versioning',
-      'Team Collaboration + Notifications',
-      'Staging, Video Walkthroughs, 90-Day Support',
+      { label: 'Full Brand Identity (Logo, Fonts, PDF Styling)', description: 'Complete brand package including logo, fonts, and PDF styling.' },
+      { label: 'Multi-tenant SaaS, Teams + Roles', description: 'Multi-tenant SaaS with user roles and team management.' },
+      { label: 'Feature Flags + Versioning', description: 'Feature flags for version control and gradual rollouts.' },
+      { label: 'Team Collaboration + Notifications', description: 'Tools for team collaboration and automated notifications.' },
+      { label: 'Staging, Video Walkthroughs, 90-Day Support', description: 'Comprehensive support with staging environment and walkthroughs.' },
     ],
   },
 };
 
-const tiers = ['kickstart', 'sprint', 'launchpack', 'studio'];
+const tiers = Object.keys(plans);
 
-export default function RichPricingTable() {
+export default function ResponsivePricingLayout() {
   const [selected, setSelected] = useState('kickstart');
-  const tabRefs = useRef([]);
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const tabNavRef = useRef(null);
-  const sectionRef = useRef(null);
   const tabInView = useInView(tabNavRef, { once: false, amount: 0.1 });
-
-  useEffect(() => {
-    const tab = tabRefs.current[tiers.indexOf(selected)];
-    if (tab) {
-      setIndicatorStyle({
-        left: tab.offsetLeft,
-        width: tab.offsetWidth,
-      });
-    }
-  }, [selected]);
-
+  const currentIndex = tiers.indexOf(selected);
   const current = plans[selected];
   const Icon = current.icon;
 
+  useEffect(() => {
+    const tab = tabRefs.current[currentIndex];
+    if (tab) {
+      const { offsetLeft, offsetWidth } = tab;
+      setIndicatorStyle({ left: offsetLeft, width: offsetWidth });
+    }
+  }, [selected]);
+
   return (
-    <section ref={sectionRef} className="px-6 py-24 bg-white relative" id="pricing">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="mx-auto max-w-4xl text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold text-[#030b1a] tracking-tight mb-2">
-          Productized Pricing Tiers
-        </h2>
-        <p className="text-gray-600 max-w-xl mx-auto">
-          Every build is scoped for success — grouped by stage, impact, and velocity.
+    <section className="px-4 sm:px-6 py-24 bg-white" id="pricing">
+      <motion.div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-[#030b1a]">Productized Pricing Tiers</h2>
+        <p className="text-gray-600 mt-2 max-w-xl mx-auto">
+          Each plan is designed for a specific founder stage.
         </p>
       </motion.div>
 
-      {/* Sticky Tab Nav */}
-      <motion.div
+      <div
         ref={tabNavRef}
-        initial={{ opacity: 0, y: 10 }}
-        animate={tabInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.1, duration: 0.3 }}
-        className={`relative z-10 mb-8 ${
-          !tabInView ? 'sticky top-0 bg-white shadow-sm' : ''
-        }`}
+        className="relative z-10 mb-6 overflow-x-auto scrollbar-hide flex sm:justify-center gap-2 sm:gap-4 px-1"
       >
-        <div className="flex justify-center gap-4 px-4 py-2 max-w-4xl mx-auto">
-          {tiers.map((tier, i) => (
-            <button
-              key={tier}
-              ref={(el) => (tabRefs.current[i] = el)}
-              onClick={() => setSelected(tier)}
-              className={`px-4 py-2 text-sm font-medium rounded-full z-10 relative transition ${
-                selected === tier ? 'text-white' : 'text-gray-700 hover:text-[#030b1a]'
-              }`}
-            >
-              {plans[tier].title}
-            </button>
-          ))}
-        </div>
         <motion.div
-          className="absolute top-0 h-full bg-[#030b1a] rounded-full z-0"
-          animate={indicatorStyle}
+          className="absolute top-1/2 -translate-y-1/2 h-9 rounded-full bg-[#030b1a]/10 z-0 transition-all"
+          animate={{ left: indicatorStyle.left, width: indicatorStyle.width }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          style={{ position: 'absolute', height: '100%' }}
         />
-      </motion.div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selected}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto border rounded-xl p-8 shadow-sm"
-        >
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Icon className="h-6 w-6 text-blue-600" />
-            <h3 className="text-xl font-semibold text-[#030b1a]">{current.title}</h3>
-          </div>
-
-          {current.badge && (
-            <div className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-700 mb-4">
-              {current.badge}
-            </div>
-          )}
-
-          <p className="text-gray-500 text-sm mb-4 italic">{current.subtitle}</p>
-
-          <div className="flex flex-col sm:flex-row justify-between text-sm text-gray-700 mb-6 gap-3">
-            <div>
-              <strong>Timeline:</strong> {current.timeline}
-            </div>
-            <div>
-              <strong>Price Range:</strong> {current.price}
-            </div>
-          </div>
-
-          <p className="text-sm text-gray-600 font-medium mb-4">
-            Deliverable: <span className="text-gray-800">{current.deliverable}</span>
-          </p>
-
-          <motion.ul
-            className="space-y-2 mb-4"
-            initial="hidden"
-            animate="show"
-            variants={{
-              hidden: {},
-              show: {
-                transition: { staggerChildren: 0.1 },
-              },
-            }}
+        {tiers.map((tier, i) => (
+          <button
+            key={tier}
+            ref={(el) => (tabRefs.current[i] = el)}
+            onClick={() => setSelected(tier)}
+            className={`relative z-10 whitespace-nowrap px-4 py-2 text-sm font-medium rounded-full transition-all ${
+              selected === tier
+                ? 'bg-[#030b1a] text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
           >
-            {current.highlights.map((f, i) => (
-              <motion.li
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.4 }}
-                className="text-sm text-gray-800 flex gap-2 items-start"
-              >
-                <CheckCircle className="h-4 w-4 text-blue-600 mt-[2px]" />
-                <span>{f}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </motion.div>
-      </AnimatePresence>
+            {plans[tier].title}
+          </button>
+        ))}
+      </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={tabInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.4, duration: 0.6 }}
-        className="mt-12 text-center"
+        key={selected}
+        className="max-w-3xl mx-auto rounded-xl border p-6 shadow"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -30 }}
+        transition={{ duration: 0.4 }}
       >
-        <a
-          href="#compare"
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-6 py-3 rounded-full shadow transition"
-        >
-          Book a Free Strategy Call →
-        </a>
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <Icon className="h-6 w-6 text-blue-600" />
+          <h3 className="text-xl font-semibold text-[#030b1a]">{current.title}</h3>
+        </div>
+
+        {current.badge && (
+          <div className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-700 mb-2">
+            {current.badge}
+          </div>
+        )}
+
+        <p className="text-gray-500 text-sm italic mb-4 flex w-full justify-center border-b-2 border-gray-100 pb-2">
+          {current.subtitle}
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700 mb-4 items-center text-center w-full">
+          <div><strong>Timeline:</strong> {current.timeline}</div>
+          <div><strong>Price:</strong> {current.price}</div>
+          <div className="col-span-2"><strong>Deliverable:</strong> {current.deliverable}</div>
+        </div>
+
+        <ul className="space-y-4">
+          {current.highlights.map((item, i) => {
+            const isOpen = expanded[i];
+            return (
+              <li key={i}>
+                <button
+                  onClick={() => setExpanded((prev) => ({ ...prev, [i]: !prev[i] }))}
+                  className="w-full flex items-start justify-between text-left text-sm text-[#030b1a] font-medium"
+                >
+                  <div className="flex items-center gap-2 text-left">
+                    <CheckCircle className="h-4 w-4 text-blue-600" />
+                    {item.label}
+                  </div>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.p
+                      className="mt-2 text-xs text-gray-600 pl-6 pr-2"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                    >
+                      {item.description}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </li>
+            );
+          })}
+        </ul>
       </motion.div>
-      <CompareFeaturesTable />
     </section>
   );
 }

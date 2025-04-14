@@ -17,12 +17,12 @@ export default function HeaderToggle() {
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label="Toggle Dark Mode"
-      className="group flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#030b1a] px-3 py-1.5 text-sm text-gray-800 dark:text-gray-200 shadow hover:shadow-md transition-all duration-200"
+      className="group flex flex-col md:flex-row items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#030b1a] px-3 py-1.5 text-sm text-gray-800 dark:text-gray-200 shadow hover:shadow-md transition-all duration-200"
     >
       <span className="font-medium">
         {isDark ? 'Light Mode' : 'Dark Mode'}
       </span>
-      <span className="relative flex items-center justify-center w-5 h-5">
+      <span className="relative flex flex-col md:flex-row items-center justify-center w-5 h-5">
         <Moon
           size={16}
           className={`absolute transition-opacity duration-300 ${

@@ -50,7 +50,7 @@ const ScrollRevealCTA: FC<Props> = ({ enterId, exitId }) => {
           >
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
+              className="inline-flex flex-col md:flex-row items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
             >
               <Rocket className="h-4 w-4" />
               <span>Start Your Build</span>

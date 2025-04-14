@@ -42,7 +42,7 @@ const child = {
 const TestimonialsByBrand: FC = () => {
   return (
     <motion.section
-      className="bg-white px-6 py-24 text-center"
+      className="bg-white px-6 py-24 text-center w-5/6 md:w-full justify-center mx-auto"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}

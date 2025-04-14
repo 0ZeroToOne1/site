@@ -112,22 +112,22 @@ const tierLabels = {
 };
 
 // Inherit feature sets upward
-function computeInheritedGroups(groups) {
-  const tierSets = {};
-  const inherited = [];
+function computeInheritedGroups(groups: Group[]): Group[] {
+  const tierSets: Record<string, Set<string>> = {};
+  const inherited: Group[] = [];
 
-  tiers.forEach((tier) => {
-    tierSets[tier] = new Set();
+  tiers.forEach((tier: string) => {
+    tierSets[tier] = new Set<string>();
   });
 
   for (const group of groups) {
-    const newGroup = { name: group.name, features: [] };
+    const newGroup: Group = { name: group.name, features: [] };
     for (const feature of group.features) {
-      const allPlans = new Set();
+      const allPlans: Set<string> = new Set();
       for (const tier of tiers) {
         if (feature.plans.includes(tier)) {
           allPlans.add(tier);
-          const idx = tiers.indexOf(tier);
+          const idx: number = tiers.indexOf(tier);
           for (let i = idx + 1; i < tiers.length; i++) {
             allPlans.add(tiers[i]);
           }
@@ -141,14 +141,25 @@ function computeInheritedGroups(groups) {
   return inherited;
 }
 
-const groupedFeatures = computeInheritedGroups(rawGroups);
+interface Feature {
+  label: string;
+  description: string;
+  plans: string[];
+}
+
+interface Group {
+  name: string;
+  features: Feature[];
+}
+
+const groupedFeatures: Group[] = computeInheritedGroups(rawGroups);
 
 export default function CompareFeaturesTable() {
-  const [hoverCol, setHoverCol] = useState(null);
+  const [hoverCol, setHoverCol] = useState<number | null>(null);
 
   return (
     <section className="px-6 py-24 bg-white border-t" id="compare">
-      <div className="mx-auto max-w-6xl text-center mb-12">
+      <div className="mx-auto max-w-6xl text-center md:text-left mb-12">
         <h2 className="text-3xl font-bold text-[#030b1a] mb-2">Feature Comparison</h2>
         <p className="text-gray-600 text-sm max-w-xl mx-auto">
           Each tier builds on the one before it — more features, more polish.
@@ -160,12 +171,12 @@ export default function CompareFeaturesTable() {
           <thead>
             <tr className="bg-gray-50 border-b text-[#030b1a]">
               <th className="p-4 font-medium text-left">Feature</th>
-              {tiers.map((tier, index) => (
+              {(tiers as Array<keyof typeof tierLabels>).map((tier, index) => (
                 <th
                   key={tier}
                   onMouseEnter={() => setHoverCol(index)}
                   onMouseLeave={() => setHoverCol(null)}
-                  className="p-4 font-semibold text-center cursor-pointer"
+                  className="p-4 font-semibold text-center md:text-left cursor-pointer"
                 >
                   {tierLabels[tier]}
                 </th>
@@ -182,7 +193,7 @@ export default function CompareFeaturesTable() {
                 </tr>
                 {group.features.map((feature, i) => (
                   <tr key={feature.label} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="p-4 text-gray-700 flex items-start gap-2">
+                    <td className="p-4 text-gray-700 flex flex-col md:flex-row items-start gap-2">
                       {feature.label}
                       <span title={feature.description}>
                         <Info className="h-4 w-4 text-gray-400 hover:text-blue-600 transition" />
