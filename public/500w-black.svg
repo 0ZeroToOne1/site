@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="129.98111mm"
+   height="22.000023mm"
+   viewBox="0 0 129.98111 22.000023"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="222.02837"
+       y="269.21906"
+       width="476.54868"
+       height="194.17812"
+       id="rect1" />
+    <rect
+       x="222.02837"
+       y="269.21906"
+       width="476.54868"
+       height="194.17812"
+       id="rect2" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-35.446663,-70.52869)">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text1"
+       style="font-size:85.3333px;font-family:Inter;-inkscape-font-specification:Inter;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);fill:#030b1a;stroke:#000000;stroke-width:0.086141;stroke-miterlimit:5;paint-order:stroke fill markers"><tspan
+         x="222.0293"
+         y="348.20715"
+         id="tspan3">ZeroToOne</tspan></text>
+    <path
+       id="rect3"
+       style="fill:#3b82f6;fill-opacity:1;stroke:#000000;stroke-width:0.0220469;stroke-miterlimit:5;paint-order:stroke fill markers"
+       d="M 35.457685,70.539702 V 92.517678 H 46.882306 V 81.570542 h 10.55337 v -11.03084 z" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text2"
+       style="font-size:85.3333px;font-family:Inter;-inkscape-font-specification:Inter;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);fill:#030b1a;stroke:#000000;stroke-width:0.086141;stroke-miterlimit:5;paint-order:stroke fill markers"><tspan
+         x="222.0293"
+         y="348.20715"
+         id="tspan4">ZeroToOne</tspan></text>
+    <path
+       id="path2"
+       style="fill:#3b82f6;fill-opacity:1;stroke:#000000;stroke-width:0.0220469;stroke-miterlimit:5;paint-order:stroke fill markers"
+       d="M 35.457685,70.539702 V 92.517678 H 46.882306 V 81.570542 h 10.55337 v -11.03084 z" />
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="135.38118mm"
+   height="24.677135mm"
+   viewBox="0 0 135.38118 24.677135"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><rect
+       x="154.7236"
+       y="340.39191"
+       width="437.09415"
+       height="140.79848"
+       id="rect2" /></defs><g
+     id="layer1"
+     transform="translate(-39.826165,-99.615267)"><g
+       id="g10"><g
+         id="g11"><text
+           xml:space="preserve"
+           transform="matrix(0.26458333,0,0,0.26458333,25.368907,12.875548)"
+           id="text2"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:85.3333px;font-family:'Satoshi Variable';-inkscape-font-specification:'Satoshi Variable Medium';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);fill:#030b1a;fill-opacity:1;stroke:#000000;stroke-width:0.086141;stroke-miterlimit:5;paint-order:stroke fill markers"><tspan
+             x="154.72266"
+             y="420.00854"
+             id="tspan3"><tspan
+               style="font-family:Inter;-inkscape-font-specification:'Inter Medium';stroke:#030b1a"
+               id="tspan1">ZeroTo</tspan></tspan></text><g
+           id="g7"
+           transform="matrix(0.99803198,0,0,0.95654905,1.1944803,4.3765119)"><path
+             id="rect3"
+             style="opacity:1;fill:#030c1c;fill-opacity:1;stroke:#030b1a;stroke-width:1.33897;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 39.377349,102.56993 v 21.83603 h 21.836032 v -15.81231 h -6.056412 v -6.02372 z" /><path
+             id="rect5-2"
+             style="fill:#0d6efd;fill-opacity:1;stroke:#0d6efd;stroke-width:0.927314;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 57.988103,100.0286 h 5.072684 v 5.07269 h -5.072684 z" /></g><text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:22.5778px;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0.0185208px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:1;fill:#0d6efd;fill-opacity:1;stroke:#0d6efd;stroke-width:2.11667;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+           x="134.03857"
+           y="124.02782"
+           id="text10"><tspan
+             id="tspan10"
+             style="fill:#0d6efd;fill-opacity:1;stroke:none;stroke-width:2.11667"
+             x="134.03857"
+             y="124.02782">One</tspan></text></g></g></g></svg>

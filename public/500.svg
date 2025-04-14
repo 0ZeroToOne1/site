@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="171.54153"
+   height="36.633499"
+   viewBox="0 0 171.54153 36.633499"
+   version="1.1"
+   id="svg2"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <!-- Large black square outline -->
+  <path
+     id="rect1"
+     style="stroke-width:2.15375;stroke-dasharray:none"
+     d="M -1.0010593e-6,1.043655 V 36.633499 H 35.482421 V 9.781937 H 33.792968 V 34.94014 H 1.689452 V 2.737015 h 25.144532 v -1.69336 z" />
+  <!-- Detached blue pixel (just above and right of the top-right corner of the square) -->
+  <rect
+     x="19.825857"
+     y="-26.407104"
+     width="6.9130001"
+     height="6.9134374"
+     fill="#3b82f6"
+     id="rect2"
+     rx="0.86417955"
+     ry="0.86417967"
+     transform="rotate(52.500001)"
+     style="stroke-width:0.864;stroke-dasharray:none" />
+  <!-- Brand text: ZeroToOne -->
+  <text
+     x="38.717308"
+     y="29.372231"
+     font-family="Helvetica, Inter, sans-serif"
+     font-size="24px"
+     fill="#000000"
+     letter-spacing="0.5"
+     id="text2">ZeroToOne</text>
+</svg>
