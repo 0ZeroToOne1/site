@@ -47,7 +47,7 @@ const TimelineProgressNav: FC<Props> = ({ steps, visibleStep, onScrollToStep }) 
             />
             <span
               className={`text-sm font-medium cursor-pointer transition ${
-                visibleStep === step.id ? 'text-[var(--accent)]' : 'text-gray-400'
+                visibleStep === step.id ? 'text-[#030b1a]' : 'text-gray-400'
               }`}
               onClick={() => onScrollToStep(step.id)}
             >

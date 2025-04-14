@@ -42,14 +42,14 @@ const child = {
 const TestimonialsByBrand: FC = () => {
   return (
     <motion.section
-      className="bg-gradient-to-t from-blue-50 to-white  px-6 py-24 text-center"
+      className="bg-white px-6 py-24 text-center"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={container}
     >
       <motion.h2
-        className="text-3xl font-semibold text-gray-900 mb-4"
+        className="text-3xl font-semibold text-[#030b1a] mb-4"
         variants={child}
       >
         What Our Clients Say

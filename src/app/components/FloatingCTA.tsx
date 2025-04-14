@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Rocket } from 'lucide-react';
+import { Send } from 'lucide-react';
 import Link from 'next/link';
 
 
@@ -54,8 +54,8 @@ const FloatingCTA: FC<Props> = ({ alwaysVisibleAfter, until }) => {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
             >
-              <Rocket className="h-4 w-4" />
-              <span>Start Your Build</span>
+              <Send className="h-4 w-4" />
+              <span>Share Your Idea</span>
             </Link>
 
         

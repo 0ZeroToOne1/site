@@ -6,14 +6,14 @@ import { motion } from 'framer-motion';
 const ProductPreview: FC = () => {
   return (
     <motion.section
-      className="relative bg-gradient-to-t from-blue-50 to-white  px-6 py-24 text-center overflow-hidden"
+      className="relative bg-white/10 px-6 py-24 text-center overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
     >
       <div className="mx-auto mb-12 max-w-3xl">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+        <h2 className="text-3xl font-semibold text-[#030b1a] mb-4">
           See It In Action
         </h2>
         <p className="text-base text-gray-600">

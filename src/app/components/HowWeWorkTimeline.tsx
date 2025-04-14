@@ -34,7 +34,7 @@ const iconMap: Record<Step['id'], typeof Lightbulb> = {
 };
 
 const HowWeWorkTimeline: FC = () => {
-  const [view, setView] = useState<'simple' | 'visual'>('visual'); // Default to visual view
+  const [view, setView] = useState<'simple' | 'visual'>('visual');
   const [loading, setLoading] = useState(false);
   const [visibleStep, setVisibleStep] = useState<number | null>(null);
 
@@ -55,20 +55,30 @@ const HowWeWorkTimeline: FC = () => {
 
   const renderMockUI = (id: number, loading: boolean) => {
     switch (id) {
-      case 1: return <DiscoverMock loading={loading} />;
-      case 2: return <DesignMock loading={loading} />;
-      case 3: return <BuildMock loading={loading} />;
-      case 4: return <LaunchMock loading={loading} />;
-      default: return null;
+      case 1:
+        return <DiscoverMock loading={loading} />;
+      case 2:
+        return <DesignMock loading={loading} />;
+      case 3:
+        return <BuildMock loading={loading} />;
+      case 4:
+        return <LaunchMock loading={loading} />;
+      default:
+        return null;
     }
   };
 
   return (
-<section className="px-6 py-20 sm:py-24" id="how-we-work">
+    <section
+      id="how-we-work"
+      className="bg-white px-6 py-20 sm:py-24"
+    >
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-8 sm:mb-12 tracking-tight">How We Work</h2>
+          <h2 className="mb-8 text-3xl font-semibold tracking-tight text-[#030b1a] sm:mb-12 sm:text-3xl">
+            How We Work
+          </h2>
           <div className="flex items-center gap-2 rounded-full bg-gray-100 p-1 text-sm">
             <button
               onClick={() => setView('simple')}
@@ -90,18 +100,17 @@ const HowWeWorkTimeline: FC = () => {
         </div>
 
         {/* 2-Column Timeline Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12">
-          {/* Sticky Nav with Progress Bar */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[200px_1fr]">
           <TimelineProgressNav
             steps={steps}
             visibleStep={visibleStep}
             onScrollToStep={scrollToStep}
           />
           <TimelineMobileNav
-  steps={steps}
-  visibleStep={visibleStep}
-  onScrollToStep={scrollToStep}
-/>
+            steps={steps}
+            visibleStep={visibleStep}
+            onScrollToStep={scrollToStep}
+          />
 
           {/* Step Content */}
           <div className="space-y-24">
@@ -115,9 +124,9 @@ const HowWeWorkTimeline: FC = () => {
 
               return (
                 <motion.section
+                  key={step.id}
                   ref={ref}
                   id={`step-${step.id}`}
-                  key={step.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -128,9 +137,9 @@ const HowWeWorkTimeline: FC = () => {
                     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent)] shadow ring-2 ring-white">
                       <Icon className="h-4 w-4 text-white" />
                     </span>
-                    <h3 className="text-xl font-semibold text-gray-900">{step.title}</h3>
+                    <h3 className="text-xl font-semibold text-[#030b1a]">{step.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-6">{step.text}</p>
+                  <p className="mb-6 text-gray-600">{step.text}</p>
 
                   {view === 'visual' && (
                     <div className="mt-4">{renderMockUI(step.id, loading)}</div>

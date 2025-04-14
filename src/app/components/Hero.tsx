@@ -2,9 +2,10 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Rocket, Brain, ShieldCheck } from 'lucide-react';
+import { Rocket, Brain, ShieldCheck, Send } from 'lucide-react';
 import BadgeStack from './BadgeStack';
 import Link from 'next/link';
+import ContactUsModal from './ContactUsModal';
 
 export default function HeroSection() {
   const ref = useRef(null);
@@ -21,15 +22,14 @@ export default function HeroSection() {
 
   return (
     <motion.section
-      id="hero"
-      ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-blue-50/30 via-white px-4 text-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-    >
-      {/* Radial Vignette */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.04),_transparent)]" />
+    id="hero"
+    ref={ref}
+    className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white border-b border-red-500 px-4 text-center"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: 'easeOut' }}
+  >
+      
 
 
       {/* Animated Watermark */}
@@ -38,7 +38,7 @@ export default function HeroSection() {
         style={{ y: watermarkY, opacity: watermarkOpacity }}
       >
         <span className="text-[20vw] font-black text-gray-300 tracking-tighter leading-none">
-          0<span className="text-[var(--accent)]">→</span>1
+          0<span className="text-[#030b1a]">→</span>1
         </span>
       </motion.div>
 
@@ -46,7 +46,7 @@ export default function HeroSection() {
       <div className="relative z-20">
         <motion.h1
           style={{ y: yHeadline, opacity }}
-          className="mb-4 text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-gray-900"
+          className="mb-4 text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-[#030b1a]"
         >
           Turn Bold Ideas Into Launch-Ready Software
         </motion.h1>
@@ -63,14 +63,9 @@ export default function HeroSection() {
 
 
 {/* CTA Button */}
-<div className="flex flex-col sm:flex-row gap-3 justify-center">
-  <Link
-    href="#contact"
-    className="inline-block rounded-md bg-[var(--accent)] px-6 py-3 text-white shadow-md transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] hover:shadow-lg"
-  >
-    Start Your Build
-  </Link>
-</div>
+
+
+      <ContactUsModal />
 
         {/* Scroll Cue Arrow */}
         <motion.div
@@ -83,5 +78,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
     </motion.section>
+
+    
   );
 }

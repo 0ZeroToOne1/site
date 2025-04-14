@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧭 ZeroToOne — Turn Bold Ideas Into Launch-Ready Software
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-14-blue?logo=nextdotjs)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-animate-0055FF?logo=framer)](https://www.framer.com/motion/)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-First, run the development server:
+ZeroToOne is a modern, motion-enhanced marketing site built with **Next.js**, **Tailwind CSS**, and **Framer Motion**. It’s designed to impress founders, pitch confidently, and showcase your unique startup-building process.
+
+## ✨ Key Features
+
+- ⚡ Scroll-reactive animations with Framer Motion
+- 🎯 Floating CTA and section-based navigation
+- 🧠 Modular sections: Hero, What You Get, Pillars, Timeline, Case Studies, Testimonials, Founder Bio
+- 💬 Dark mode toggle with `next-themes`
+- 📱 Fully responsive and mobile-first
+- 🔍 Scrollspy-enabled `<FloatingSectionNav />` with animated tooltips
+
+## 🚀 Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧩 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                # Next.js App Router pages and layout
+├── components/         # Custom UI components (Hero, CTA, Nav, etc.)
+├── styles/             # Global styles and Tailwind config
+├── public/             # Static assets (logos, images)
+```
 
-## Learn More
+## 🛠 Built With
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js 14](https://nextjs.org/)
+- [Tailwind CSS 3](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Lucide Icons](https://lucide.dev/)
+- [next-themes](https://github.com/pacocoursey/next-themes)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Scroll navigation:** `<FloatingSectionNav />` tracks visible sections and smoothly scrolls to anchors
+- **Motion UI:** Components animate in as they enter the viewport
+- **Dark mode toggle:** Fades between themes, with persisted user preference
+- **Homepage sections:** are modular, animated, and brand-consistent with your values: clarity, speed, and launch-readiness
 
-## Deploy on Vercel
+## 📦 Future Enhancements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- CMS or MDX blog integration
+- SEO optimizations and Open Graph previews
+- Client logos + case studies carousel
+- Full accessibility audit and improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧑‍💻 About ZeroToOne
+
+> “We help visionaries turn raw ideas into real, working products — designed to impress, built to scale, and ready to launch.”
+
+Learn more at [https://zerotoone.cloud](https://zerotoone.cloud)

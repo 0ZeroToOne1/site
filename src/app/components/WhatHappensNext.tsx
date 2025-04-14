@@ -40,7 +40,7 @@ const WhatHappensNextSection: FC = () => {
   return (
     <motion.section
       id="next"
-      className="relative z-0 bg-white px-6 pt-24 pb-32 overflow-visible"
+      className="relative z-0 bg-white/10 px-6 pt-24 pb-32 overflow-visible"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
@@ -48,7 +48,7 @@ const WhatHappensNextSection: FC = () => {
     >
       <div className="relative z-10 mx-auto max-w-4xl bg-white p-10 shadow-lg ring-1 ring-gray-200 rounded-xl">
         <motion.h2
-          className="text-3xl font-bold text-gray-900 mb-10"
+          className="text-3xl font-bold text-[#030b1a] mb-10"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -72,10 +72,10 @@ const WhatHappensNextSection: FC = () => {
               variants={itemVariants}
               >
                 <div className="mt-1 shrink-0">
-                  <Icon className="h-6 w-6 text-[var(--accent)]" />
+                  <Icon className="h-6 w-6 text-[#030b1a]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-[#030b1a]">
                     {step.title}
                   </h3>
                   <p className="text-gray-700">{step.text}</p>

@@ -60,7 +60,7 @@ const WhatHappensNextModal: FC = () => {
                 <X className="h-5 w-5" />
               </button>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
+              <h3 className="text-xl font-semibold text-[#030b1a] mb-6">
                 What Happens Next?
               </h3>
 
@@ -84,10 +84,10 @@ const WhatHappensNextModal: FC = () => {
                       }}
                     >
                       <div className="mt-1">
-                        <Icon className="h-5 w-5 text-[var(--accent)]" />
+                        <Icon className="h-5 w-5 text-[#030b1a]" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">{step.title}</p>
+                        <p className="font-medium text-[#030b1a]">{step.title}</p>
                         <p className="text-gray-700">{step.text}</p>
                       </div>
                     </motion.li>

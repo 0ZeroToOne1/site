@@ -29,7 +29,7 @@ const BadgeStack: FC = () => {
           }}
           whileHover={{ y: -2 }}
         >
-          <Icon size={16} className="text-[var(--accent)]" />
+          <Icon size={16} className="text-[#030b1a]" />
           {text}
         </motion.div>
       ))}

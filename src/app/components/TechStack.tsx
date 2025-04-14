@@ -39,7 +39,7 @@ const stack = [
 const TechStack: FC = () => {
     return (
         <motion.section
-            className="bg-white  px-6 py-16 pt-2 text-center w-full mx-auto"
+            className="bg-white px-6 py-16 pt-2 text-center w-full mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -57,7 +57,7 @@ const TechStack: FC = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                     >
-                        <Icon className="h-4 w-4 text-[var(--accent)]" />
+                        <Icon className="h-4 w-4 text-[#030b1a]" />
                         {name}
                     </motion.div>
                 ))}

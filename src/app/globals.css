@@ -48,3 +48,7 @@ h5,
 h6 {
   @apply tracking-tight;
 }
+
+.sub-heading {
+  @apply mb-4 text-3xl font-semibold text-gray-900;
+}

@@ -57,13 +57,13 @@ const CaseStudySection: FC = () => {
       {/* Title + Icon */}
       <div className="mx-auto max-w-3xl mb-12">
         <motion.div
-          className="mb-4 flex items-center justify-center gap-2 text-[var(--accent)]"
+          className="mb-4 flex items-center justify-center gap-2 text-[#030b1a]"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <Briefcase className="h-6 w-6" />
-          <h2 className="text-3xl font-semibold text-gray-900">Case Studies</h2>
+          <h2 className="text-3xl font-semibold text-[#030b1a]">Case Studies</h2>
         </motion.div>
 
         <motion.p
@@ -87,10 +87,10 @@ const CaseStudySection: FC = () => {
             className="min-w-[85%] sm:min-w-0 snap-start shrink-0 p-5 bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition flex flex-col items-start"
             variants={cardVariants}
           >
-            <div className="mb-3 text-[var(--accent)]">
+            <div className="mb-3 text-[#030b1a]">
               <Icon className="h-6 w-6" />
             </div>
-            <h3 className="font-semibold text-[var(--accent)] mb-1">{title}</h3>
+            <h3 className="font-semibold text-[#030b1a] mb-1">{title}</h3>
             <p className="text-sm text-gray-700 leading-snug">{description}</p>
           </motion.div>
         ))}

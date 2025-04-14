@@ -51,7 +51,7 @@ const WhoItsFor: FC = () => {
     >
       
       <motion.h2
-        className="mb-4 text-3xl font-semibold text-gray-900"
+        className="mb-4 text-3xl font-semibold text-[#030b1a]"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -78,10 +78,10 @@ const WhoItsFor: FC = () => {
             variants={child}
             className="w-full sm:w-[20rem] mx-4 rounded-lg bg-white p-6 shadow ring-1 ring-gray-200 flex flex-col items-center text-center"
           >
-            <div className="mb-4 text-[var(--accent)]">
+            <div className="mb-4 text-[#030b1a]">
               <Icon className="h-8 w-8" />
             </div>
-            <h3 className="mb-2 text-lg font-semibold text-gray-900">{title}</h3>
+            <h3 className="mb-2 text-lg font-semibold text-[#030b1a]">{title}</h3>
             <p className="text-sm text-gray-600">{text}</p>
           </motion.div>
         ))}
