@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 const ProductPreview: FC = () => {
   return (
     <motion.section
-      className="relative bg-white/10 px-6 py-8 md:py-24 text-center md:text-left overflow-hidden"
+      className="relative bg-white/10 px-6 py-8 md:py-24 text-right md:text-left overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="mx-auto mb-12 max-w-3xl">
+      <div className="mx-auto mb-12 w-full sm:w-2/3 text-right">
         <h2 className="text-3xl font-semibold text-[#030b1a] mb-4">
           See It In Action
         </h2>

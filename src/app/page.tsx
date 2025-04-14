@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
+
 import {
   Hero,
   SiteHeader,
@@ -23,6 +24,7 @@ import {
   FloatingSectionNav,
   WhyWeExist,
   RichPricingTable,
+  TestimonialHighlight,
 } from './components';
 
 
@@ -46,19 +48,22 @@ export default function HomePage() {
       {/* Background Image */}
       <WhatYouGet />
     
-      <WhyWeExist />
+ 
       <LaunchPlanSteps />
       <ProductPreview />
       <TechStack />
 
       {/* Floating Section Nav */}
       <FloatingSectionNav />
+      <WhyWeExist />
       <TestimonialsByBrand />
       <CaseStudySection />
     
       <FivePillars />
       <FoundersSection />
       <WhatHappensNext />
+
+      <TestimonialHighlight />
 
       {/* Call to Action Section */}
       <CallToActionSection />

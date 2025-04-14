@@ -33,7 +33,7 @@ const ClientLogoMarquee: FC = () => {
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-1/6 bg-gradient-to-l from-white to-transparent" />
 
       {/* Animated Marquee */}
-      <div className="mx-auto w-3/4 overflow-hidden">
+      <div className="mx-auto w-2/3 sm:w-1/3 overflow-hidden">
         <motion.div
           className={`flex gap-12 whitespace-nowrap transition-opacity duration-1000 ${
             isInView ? 'opacity-100' : 'opacity-0'

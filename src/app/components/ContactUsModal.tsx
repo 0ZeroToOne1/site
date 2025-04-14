@@ -159,7 +159,7 @@ export default function ShareYourIdeaModal() {
                           placeholder={field.placeholder}
                           className="peer w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-[#030b1a] placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                         />
-                        <label className="pointer-events-none absolute left-3 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-[#030b1a]">
+                        <label className="mb-2 pointer-events-none absolute left-3 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-4.5 peer-focus:text-xs peer-focus:text-[#030b1a]">
                           {field.label}
                         </label>
                       </motion.div>
@@ -178,7 +178,7 @@ export default function ShareYourIdeaModal() {
                         placeholder="Your Message"
                         className="peer w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-[#030b1a] placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                       />
-                      <label className="pointer-events-none absolute left-3 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-[#030b1a]">
+                      <label className="pointer-events-none absolute left-3 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-focus:-top-4.5 peer-focus:text-xs peer-focus:text-[#030b1a]">
                         Message
                       </label>
                     </motion.div>

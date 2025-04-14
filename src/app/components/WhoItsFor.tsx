@@ -43,7 +43,7 @@ const WhoItsFor: FC = () => {
   return (
     <motion.section
     id = "who-its-for"
-      className="bg-white px-6 py-24 text-center"
+      className="bg-white px-6 py-24 text-right w-full mx-auto"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
@@ -51,7 +51,7 @@ const WhoItsFor: FC = () => {
     >
       
       <motion.h2
-        className="mb-4 text-3xl font-semibold text-[#030b1a]"
+        className="mb-4 text-3xl font-semibold text-[#030b1a] w-2/3 jusitfy-center mx-auto"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -60,7 +60,7 @@ const WhoItsFor: FC = () => {
       </motion.h2>
 
       <motion.p
-        className="mx-auto mb-12 max-w-2xl text-base text-gray-600"
+        className="mb-12 text-right text-gray-600 w-2/3 jusitfy-center mx-auto"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}

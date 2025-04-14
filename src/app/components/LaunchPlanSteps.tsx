@@ -24,13 +24,13 @@ const steps = [
 export default function LaunchPlanSteps() {
   return (
     <section className="bg-white/10 py-24 px-6" id="launch-plan">
-      <div className="mx-auto max-w-5/6 md:max-w-5xl">
+      <div className="mx-auto w-full sm:w-2/3">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-[#030b1a] text-center md:text-left mb-16"
+          className="text-3xl font-semibold text-[#030b1a] sm:text-3xl mb-12 text-left"
         >
           Your 90-Day Launch Roadmap
         </motion.h2>

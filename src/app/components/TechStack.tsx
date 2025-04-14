@@ -68,7 +68,7 @@ const TechStack: FC = () => {
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <h3 className="mb-6 text-sm uppercase font-semibold text-gray-400 tracking-widest">
+      <h3 className="mb-6 text-sm uppercase font-semibold text-gray-400 tracking-widest text-center">
         Our Tech Stack
       </h3>
 

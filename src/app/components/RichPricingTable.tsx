@@ -25,7 +25,7 @@ const plans = {
     badge: 'Best for Launch',
     subtitle: 'For fast-moving founders who need to validate and impress early.',
     timeline: '6–8 weeks',
-    price: '$12k–$18k',
+    price: '$17k–$21k',
     deliverable: 'Launch-ready MVP with foundational features',
     highlights: [
       { label: 'Auth, Admin, Dashboards', description: 'User authentication, admin controls, and internal dashboards.' },
@@ -40,7 +40,7 @@ const plans = {
     badge: 'Most Popular',
     subtitle: 'For founders ready to onboard users, raise funds, or go live with v1.',
     timeline: '10–12 weeks',
-    price: '$20k–$30k',
+    price: '$22k–$30k',
     deliverable: 'Scalable MVP with onboarding & monetization tools',
     highlights: [
       { label: 'Advanced PDF & Report Templates', description: 'Custom-styled, dynamic PDF reports with templating.' },
@@ -55,7 +55,7 @@ const plans = {
     icon: Layers3,
     subtitle: 'For founders who want it all — MVP, polish, growth features, and support.',
     timeline: '5–6 months',
-    price: '$50k–$75k',
+    price: '$70k+',
     deliverable: 'End-to-end product with scale & polish built-in',
     highlights: [
       { label: 'Full Brand Identity (Logo, Fonts, PDF Styling)', description: 'Complete brand package including logo, fonts, and PDF styling.' },
@@ -89,10 +89,10 @@ export default function ResponsivePricingLayout() {
   }, [selected]);
 
   return (
-    <section className="px-4 sm:px-6 py-24 bg-white" id="pricing">
-      <motion.div className="text-center mb-12">
+    <section className="px-4 sm:px-6 py-24 bg-white w-full sm:w-2/3 mx-auto" id="pricing">
+      <motion.div className="text-right mb-12">
         <h2 className="text-3xl font-bold text-[#030b1a]">Productized Pricing Tiers</h2>
-        <p className="text-gray-600 mt-2 max-w-xl mx-auto">
+        <p className="text-gray-600 mt-2  mx-auto">
           Each plan is designed for a specific founder stage.
         </p>
       </motion.div>

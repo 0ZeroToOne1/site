@@ -42,7 +42,7 @@ const child = {
 const TestimonialsByBrand: FC = () => {
   return (
     <motion.section
-      className="bg-white px-6 py-24 text-center w-5/6 md:w-full justify-center mx-auto"
+      className="bg-white px-6 py-24 text-left w-full sm:w-2/3 justify-center mx-auto"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -55,7 +55,7 @@ const TestimonialsByBrand: FC = () => {
         What Our Clients Say
       </motion.h2>
       <motion.p
-        className="mx-auto max-w-xl text-base text-gray-600 mb-12"
+        className="mx-auto  text-base text-gray-600 mb-12"
         variants={child}
       >
         Trusted by founders, operators, and innovators across industries.

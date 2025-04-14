@@ -73,7 +73,8 @@ const HowWeWorkTimeline: FC = () => {
       id="how-we-work"
       className="bg-white px-6 py-20 sm:py-24"
     >
-      <div className="mx-auto max-w-7xl">
+      
+      <div className="mx-auto w-full sm:w-2/3">
         {/* Header */}
         <div className="mb-10 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <h2 className="mb-8 text-3xl font-semibold tracking-tight text-[#030b1a] sm:mb-12 sm:text-3xl">

@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
+import { Dancing_Script } from 'next/font/google';
 import Providers from './providers/ThemeProvider';
 import "./globals.css";
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 const inter = Inter({ 
   subsets: ['latin'], 
   variable: '--font-inter' 
 });
+
+const dancing = Dancing_Script({ weight: ['600'], subsets: ['latin'], variable: '--font-dancing' });
 
 export const metadata: Metadata = {
   title: "ZeroToOne — Turn Bold Ideas Into Launch-Ready Software",
@@ -42,6 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`bg-white text-gray-900 dark:bg-[#030b1a] dark:text-white ${inter.variable} font-sans antialiased`}
       >
+          <ScrollProgressBar />
         <Providers>{children}</Providers>
       </body>
     </html>

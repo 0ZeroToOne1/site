@@ -17,3 +17,4 @@ export { default as SiteHeader } from './SiteHeader';
 export { default as WhyWeExist } from './WhyWeExist';
 export { default as RichPricingTable } from './RichPricingTable';
 export { default as Signature } from './Signature';
+export { default as TestimonialHighlight } from './TestimonialHighlight';
