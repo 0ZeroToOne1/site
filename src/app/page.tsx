@@ -1,11 +1,11 @@
 'use client';
 
-import MotionCard from '@/components/MotionCard';
-import MotionSection from '@/components/MotionSection';
+import MotionCard from './components/MotionCard';
+import MotionSection from './components/MotionSection';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import BuildTimeline from './components/BuildTimeline';
 
 import {
   Hero,
@@ -27,6 +27,7 @@ import {
   WhyWeExist,
   RichPricingTable,
   TestimonialHighlight,
+  OpenSourceBadgeWall,
 } from './components';
 
 
@@ -45,23 +46,29 @@ export default function HomePage() {
       {/* Sections */}
       <WhoItsFor />
       <HowWeWorkTimeline />
+      <LaunchPlanSteps />
+      <BuildTimeline />
+
+      {/* Open Source Badge Wall */}
       <RichPricingTable />
 
       {/* Background Image */}
       <WhatYouGet />
     
  
-      <LaunchPlanSteps />
+
       <ProductPreview />
       <TechStack />
+   
 
       {/* Floating Section Nav */}
       <FloatingSectionNav />
+      <FivePillars />
       <WhyWeExist />
       <TestimonialsByBrand />
       <CaseStudySection />
     
-      <FivePillars />
+    
       <FoundersSection />
       <WhatHappensNext />
 

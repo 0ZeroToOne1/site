@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import Image from 'next/image';
 import Signature from './Signature';
+import MotionCard from './builder/MotionCard';
 
 export default function ShareYourIdeaModal() {
   const [open, setOpen] = useState(false);

@@ -69,9 +69,11 @@ const TechStack: FC = () => {
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <h3 className="mb-6 text-sm font-semibold text-gray-400 tracking-widest text-center uppercase">
-        Our Tech Stack
-      </h3>
+
+      <h4 className="text-xl font-semibold mb-2 text-[var(--accent)] text-center">Built With Trusted Tools</h4>
+        <p className="text-gray-600 mb-10 text-center">
+          We use a fully open source stack trusted by thousands of startups and scale-ups.
+        </p>
 
       <motion.div className="flex mb-6 gap-3 justify-center">
         <button

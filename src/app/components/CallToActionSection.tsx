@@ -10,7 +10,7 @@ import MotionCard from './builder/MotionCard'; // Ensure this path is correct
 const CallToActionSection: FC = () => {
   return (
     <MotionSection
-      id="contact"
+
       className="relative px-4 py-24 text-white text-center bg-[#030b1a] sm:px-6 overflow-hidden"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}

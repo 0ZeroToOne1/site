@@ -10,7 +10,7 @@ interface Props {
 const DiscoverMock = ({ loading = false }: Props) => {
   return (
     <motion.div
-      className="rounded-md border border-gray-200 bg-white p-4 shadow-sm w-full md:w-1/2"
+      className="rounded-md border border-gray-200 bg-white p-4 shadow-sm w-full md:w-3/4"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}

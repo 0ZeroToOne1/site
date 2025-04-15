@@ -17,7 +17,7 @@ const MotionCard = ({ children, className = '' }: MotionCardProps) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, ease: 'easeOut' }}
     viewport={{ once: true }}
-    className={`rounded-2xl shadow-lg p-6 bg-white transition-all ${className}`}
+    className={`rounded-2xl shadow-lg p-6  transition-all ${className}`}
   >
     {children}
   </motion.div>

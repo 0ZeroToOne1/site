@@ -9,10 +9,15 @@ import clsx from 'clsx';
 const sections = [
   { id: '#hero', label: 'Top' },
   { id: '#who-its-for', label: "Who It's For" },
-  { id: '#what-you-get', label: 'What You Get' },
   { id: '#how-we-work', label: 'How We Work' },
-  { id: '#launch-plan', label: 'The Plan' },
-  { id: '#case-studies', label: 'Case Study' },
+  { id: '#pricing', label: 'Example Pricing' },
+  { id: '#what-you-get', label: 'What You Get' },
+  { id: '#launch-plan', label: 'The Launch Plan' },
+  { id: '#example-screens', label: 'Examples' },
+  { id: '#beleive', label: 'What We Believe' },
+  { id: '#why-we-exist', label: 'Why We Exist' },
+  { id: '#testimonials', label: 'Testimonials' },
+  { id: '#case-studies', label: 'Case Studies' },
   { id: '#founder', label: 'About Frank' },
   { id: '#contact', label: 'Contact' },
 ];

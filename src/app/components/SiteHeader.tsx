@@ -11,7 +11,7 @@ import HeaderToggle from './HeaderToggle';
 
 export default function SiteHeader() {
   return (
-    <header  className="sticky z-50 flex flex-col w-full px-6 py-5 items-center justify-center bg-white border-b border-gray-200 shadow-sm top-0 md:flex-row">
+    <header  className="sticky z-50 flex flex-col w-full px-6 py-5 items-center justify-center bg-white top-0 md:flex-row">
       <motion.div className="flex flex-col pl-2 gap-3 items-center md:flex-row">
         <Image
           src="/final-250.png"

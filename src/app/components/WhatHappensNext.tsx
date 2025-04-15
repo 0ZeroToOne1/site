@@ -50,8 +50,8 @@ const itemVariants = {
 const WhatHappensNextSection: FC = () => {
   return (
     <MotionSection
-      id="next"
-      className="relative z-0 px-4 pt-24 pb-32 bg-gradient-to-b from-white to-white via-white/90 sm:px-6"
+      id="contact"
+      className="relative z-0 px-4 pt-24 pb-20 bg-white sm:px-6"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
@@ -97,7 +97,7 @@ const WhatHappensNextSection: FC = () => {
 
                 <div className="flex-1 ml-8">
                   <div className="flex mb-2 gap-3 items-center">
-  
+
                     <h3 className="text-lg font-semibold text-[#030b1a]">{step.title}</h3>
                   </div>
                   <RevealText as='p' className="text-sm text-gray-700 sm:text-base">{step.text}</RevealText>
@@ -112,7 +112,7 @@ const WhatHappensNextSection: FC = () => {
           <h4 className="mb-4 text-xl font-semibold text-center text-[#030b1a]">
             Ready to start? Let’s talk.
           </h4>
-          <form className="grid max-w-2xl mx-auto gap-4 sm:grid-cols-2">
+          <form className="grid max-w-2xl mx-auto gap-4 sm:grid-cols-2 text-[#030b1a] placeholder:text-gray-400">
             <input
               type="text"
               placeholder="Your name"

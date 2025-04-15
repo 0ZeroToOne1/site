@@ -42,13 +42,13 @@ const WhatYouGet: FC = () => {
   return (
     <MotionSection
       id="what-you-get"
-      className="relative w-full px-6 py-24 mx-auto text-left bg-gradient-to-b from-white to-white via-white/90 sm:py-32 sm:w-2/3"
+      className="relative w-full px-6 py-24 mx-auto text-center sm:text-right bg-white sm:py-32 sm:w-2/3"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="h-full w-full bg-grid-small [mask-image:radial-gradient(white,transparent_85%)] opacity-5" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto text-center md:text-left">
+      <div className="relative z-10 w-full mx-auto text-center md:text-right">
         <h2 className="mb-4 text-sm font-medium tracking-wider uppercase text-[var(--accent)]">
           Built for Bold Founders
         </h2>
@@ -62,7 +62,7 @@ const WhatYouGet: FC = () => {
             return (
               <motion.div
                 key={item.title}
-                className="p-6 bg-white/60 shadow-md ring-1 ring-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 group backdrop-blur"
+                className="p-6 shadow-md ring-1 ring-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 group backdrop-blur "
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"

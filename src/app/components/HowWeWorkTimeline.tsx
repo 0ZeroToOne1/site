@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC, useRef } from 'react';
 import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import MotionCard from './builder/MotionCard';
 import RevealText from './builder/RevealText';
 import DiscoverMock from './HowWeWorkTimeline/DiscoverMock';
@@ -12,7 +11,6 @@ import BuildMock from './HowWeWorkTimeline/BuildMock';
 import LaunchMock from './HowWeWorkTimeline/LaunchMock';
 import TimelineProgressNav from './HowWeWorkTimeline/TimelineProgressNav';
 import TimelineMobileNav from './HowWeWorkTimeline/TimelineMobileNav';
-
 import { Lightbulb, Ruler, Code2, Rocket } from 'lucide-react';
 
 interface Step {
@@ -39,6 +37,7 @@ const HowWeWorkTimeline: FC = () => {
   const [view, setView] = useState<'simple' | 'visual'>('visual');
   const [loading, setLoading] = useState(false);
   const [visibleStep, setVisibleStep] = useState<number | null>(null);
+  const stepRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     if (view === 'visual') {
@@ -70,12 +69,38 @@ const HowWeWorkTimeline: FC = () => {
     }
   };
 
+  // ✅ Attach intersection observer to stepRefs
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries.find((entry) => entry.isIntersecting);
+        if (visibleEntry) {
+          const index = stepRefs.current.findIndex((ref) => ref === visibleEntry.target);
+          if (index !== -1) {
+            setVisibleStep(steps[index].id);
+            console.log('Visible step:', steps[index].id);
+          }
+        }
+      },
+      {
+        root: null,
+        threshold: 0.4,
+      }
+    );
+
+    stepRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      stepRefs.current.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
   return (
-    <MotionSection
-      id="how-we-work"
-      className="px-6 py-20 bg-white sm:py-24"
-    >
-      
+    <MotionSection id="how-we-work" className="px-6 py-20 bg-white sm:py-24">
       <div className="w-full mx-auto sm:w-2/3">
         {/* Header */}
         <div className="flex flex-col mb-10 gap-4 items-center justify-between sm:flex-row">
@@ -119,35 +144,31 @@ const HowWeWorkTimeline: FC = () => {
           <div className="space-y-24">
             {steps.map((step, i) => {
               const Icon = iconMap[step.id];
-              const { ref, inView } = useInView({ threshold: 0.4 });
-
-              useEffect(() => {
-                if (inView) setVisibleStep(step.id);
-              }, [inView]);
-
               return (
-                <MotionSection
+                <section
                   key={step.id}
-                  ref={ref}
                   id={`step-${step.id}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  ref={(el) => (stepRefs.current[i] = el)}
                   className="scroll-mt-24"
                 >
-                  <div className="flex mb-4 gap-3 items-center">
-                    <span className="h-8 w-8 items-center justify-center shadow ring-2 ring-white rounded-full inline-flex bg-[var(--accent)]">
-                      <Icon className="h-4 w-4 text-white" />
-                    </span>
-                    <h3 className="text-xl font-semibold text-[#030b1a]">{step.title}</h3>
-                  </div>
-                  <RevealText as='p' className="mb-6 text-gray-600">{step.text}</RevealText>
-
-                  {view === 'visual' && (
-                    <div className="mt-4">{renderMockUI(step.id, loading)}</div>
-                  )}
-                </MotionSection>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <div className="flex mb-4 gap-3 items-center">
+                      <span className="h-8 w-8 items-center justify-center shadow ring-2 ring-white rounded-full inline-flex bg-[var(--accent)]">
+                        <Icon className="h-4 w-4 text-white" />
+                      </span>
+                      <h3 className="text-xl font-semibold text-[#030b1a]">{step.title}</h3>
+                    </div>
+                    <RevealText as="p" className="mb-6 text-gray-600">
+                      {step.text}
+                    </RevealText>
+                    {view === 'visual' && <div className="mt-4">{renderMockUI(step.id, loading)}</div>}
+                  </motion.div>
+                </section>
               );
             })}
           </div>

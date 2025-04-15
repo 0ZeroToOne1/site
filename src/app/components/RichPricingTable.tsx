@@ -94,7 +94,7 @@ export default function ResponsivePricingLayout() {
 
   return (
     <MotionSection className="w-full px-4 py-24 mx-auto bg-white sm:px-6 sm:w-2/3" id="pricing">
-      <motion.div className="mb-12 text-center md:text-right">
+      <motion.div className="mb-12 text-center md:text-left">
         <RevealText className="text-3xl font-bold text-[#030b1a]">Productized Pricing Tiers</RevealText>
         <p className="mt-2 mx-auto text-gray-600">
           Each plan is designed for a specific founder stage.

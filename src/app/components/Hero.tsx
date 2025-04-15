@@ -43,7 +43,7 @@ export default function HeroSection() {
         className="absolute z-10 pointer-events-none top-[19%] left-1/2 -translate-x-1/2 -translate-y-1/2 select-none"
         style={{ y: watermarkY, opacity: watermarkOpacity }}
       >
-        <span className="block font-black text-gray-300 tracking-tighter leading-none text-[clamp(4rem,20vw,12rem)] whitespace-nowrap">
+        <span className="block font-black text-gray-300 tracking-tighter leading-none text-[clamp(4rem,20vw,16rem)] whitespace-nowrap">
           0<span className="text-[#3b82f6]">→</span>1
         </span>
       </motion.div>
