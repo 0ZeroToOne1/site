@@ -1,28 +1,30 @@
-// /components/Signature.tsx
-const Signature = () => (
-    <svg
-      viewBox="0 0 200 60"
+'use client';
+
+import { motion } from 'framer-motion';
+
+const Signature = () => {
+  return (
+    <motion.svg
+      viewBox="0 0 300 100"
+      width="200"
+      height="70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="absolute w-32 h-auto opacity-10 bottom-4 right-6 sm:right-10 pointer-events-none"
+      className="text-[var(--accent)]"
     >
-      <path
-        d="M10 30 C30 10, 70 50, 90 20 C110 -10, 150 50, 190 10"
-        stroke="#030b1a"
+      <motion.path
+        d="M10 60 C 20 20, 40 20, 50 60 S 80 100, 90 60 M100 60 C110 20, 130 20, 140 60 M150 60 C160 20, 180 20, 190 60"
+        // Replace this path with traced "Frank Camp" SVG path for a real signature look
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-      >
-        <animate
-          attributeName="stroke-dasharray"
-          from="0,200"
-          to="200,0"
-          dur="2s"
-          fill="freeze"
-        />
-      </path>
-    </svg>
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 2.6, ease: 'easeInOut' }}
+      />
+    </motion.svg>
   );
-  
-  export default Signature;
-  
+};
+
+export default Signature;

@@ -23,4 +23,5 @@ export { default as ProductBuildSimulator } from './ProductBuildSimulator';
 export { default as BuildTimeline } from './BuildTimeline';
 export { default as SectionHeader } from './SectionHeader';
 export { default as StyledLanding } from './StyledLanding';
-import { default as FounderRoadmapBuilder } from './FounderRoadmapBuilder';
+export { default as FounderRoadmapBuilder } from './FounderRoadmapBuilder';
+export { default as BlueprintFlowBackground } from './BlueprintFlowBackground';

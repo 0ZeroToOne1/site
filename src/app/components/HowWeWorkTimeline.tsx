@@ -111,48 +111,47 @@ const HowWeWorkTimeline: FC = () => {
   };
 
   return (
-    <MotionSection id="how-we-work" className="relative px-6 py-20 sm:py-24">
+    <MotionSection id="how-we-work" className="relative px-6 py-20 sm:py-24 z-10 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.5)_30%,_transparent_100%)] ">
       {/* Blueprint background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
-  <svg
-    className="w-full h-full"
-    viewBox="0 0 100 100"
-    preserveAspectRatio="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <defs>
-      <pattern
-        id="grid"
-        width="10"
-        height="10"
-        patternUnits="userSpaceOnUse"
-      >
-        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#3B82F6" strokeWidth="0.2" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#grid)" />
-  </svg>
-</div>
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="grid"
+              width="1"
+              height="1"
+              patternUnits="userSpaceOnUse"
+            >
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#3B82F6" strokeWidth="0.07" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
 
       <div className="mx-auto w-full sm:w-2/3">
         <div className="mb-20 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <SectionSubHeader title="How We Work" subtitle="The steps we take to perfect your idea." />
           <MotionCard className="flex gap-2 rounded-full bg-gray-100 p-1 text-sm shadow-sm border border-gray-200">
-  {(['simple', 'visual'] as const).map((mode) => (
-    <button
-      key={mode}
-      onClick={() => setView(mode)}
-      aria-pressed={view === mode}
-      className={`rounded-full px-4 py-1 transition-all duration-300 ${
-        view === mode
-          ? 'bg-[var(--accent)] text-white shadow'
-          : 'text-gray-500 hover:text-gray-700 bg-white'
-      }`}
-    >
-      {mode === 'simple' ? 'Simple View' : 'Visual View'}
-    </button>
-  ))}
-</MotionCard>
+            {(['simple', 'visual'] as const).map((mode) => (
+              <button
+                key={mode}
+                onClick={() => setView(mode)}
+                aria-pressed={view === mode}
+                className={`rounded-full px-4 py-1 transition-all duration-300 ${view === mode
+                    ? 'bg-[var(--accent)] text-white shadow'
+                    : 'text-gray-500 hover:text-gray-700 bg-white'
+                  }`}
+              >
+                {mode === 'simple' ? 'Simple View' : 'Visual View'}
+              </button>
+            ))}
+          </MotionCard>
         </div>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[200px_1fr] w-full mx-auto">
@@ -181,21 +180,18 @@ const HowWeWorkTimeline: FC = () => {
                     >
                       <div className="relative">
                         <div
-                          className={`relative bg-white shadow-lg rounded-xl w-5/6 p-6 ${
-                            isRight
+                          className={`relative bg-white shadow-lg rounded-xl w-5/6 p-6 ${isRight
                               ? 'border-l-6 border-blue-500'
                               : 'border-r-6 border-blue-500 text-right justify-end'
-                          }`}
+                            }`}
                         >
                           <div
-                            className={`mb-4 flex items-center gap-3 ${
-                              isRight ? 'justify-start' : 'justify-end'
-                            }`}
+                            className={`mb-4 flex items-center gap-3 ${isRight ? 'justify-start' : 'justify-end'
+                              }`}
                           >
                             <span
-                              className={`inline-flex h-8 w-8 items-center justify-center rounded-full shadow ring-2 ring-white ${
-                                visibleStep === step.id ? 'bg-[var(--accent)] animate-pulse' : 'bg-gray-300'
-                              }`}
+                              className={`inline-flex h-8 w-8 items-center justify-center rounded-full shadow ring-2 ring-white ${visibleStep === step.id ? 'bg-[var(--accent)] animate-pulse' : 'bg-gray-300'
+                                }`}
                             >
                               <Icon className="h-4 w-4 text-white" />
                             </span>

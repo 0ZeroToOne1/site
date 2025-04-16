@@ -1,9 +1,9 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useState, useRef } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import MotionSection from './builder/MotionSection';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import clsx from 'clsx';
 import {
   SiNextdotjs, SiTailwindcss, SiPostgresql, SiStripe,
@@ -36,6 +36,12 @@ const sections = {
 };
 
 const TechStack: FC = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const width = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   const [view, setView] = useState<'grid' | 'list'>('grid');
 
   const getIconColor = (section: string) => {
@@ -49,12 +55,14 @@ const TechStack: FC = () => {
 
   return (
     <MotionSection
-      className="w-full px-6 py-16 pt-2 mx-auto text-center bg-white md:text-left"
+        ref={sectionRef} // 👈 Add this
+      className="relative w-full px-6 py-16 pt-2 mx-auto text-center bg-white md:text-left"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
-    >
+        >            
+      
       <h4 className="text-lg font-semibold mb-2 text-[var(--accent)] text-center">Built With Trusted Tools</h4>
       <p className="text-gray-400 mt-2 text-center mb-8">
         We use a fully open source stack trusted by thousands of startups and scale-ups.
@@ -155,6 +163,11 @@ const TechStack: FC = () => {
           </div>
         </div>
       ))}
+        {/* Optional Scroll Progress Bar */}
+    <motion.div
+style={{ width }}
+className="absolute bottom-0 right-0 h-1 bg-blue-500 rounded-full "
+/>
     </MotionSection>
   );
 };

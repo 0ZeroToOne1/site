@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-popover": "^1.1.7",
+    "@radix-ui/react-tooltip": "^1.2.0",
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^9.1.2",
     "clsx": "^2.1.1",

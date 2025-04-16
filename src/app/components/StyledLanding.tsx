@@ -76,8 +76,8 @@ export default function StyledLanding() {
       {/* Founders */}
       <section id="about" className="py-14">
       <SectionHeader title="Get To Know Us" subtitle="Why we want to help" />
-      <WhyWeExist />
       <FivePillars />
+      <WhyWeExist />
       <FoundersSection />
       </section>
 

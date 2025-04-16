@@ -26,34 +26,14 @@ export default function WhyWeExist() {
     <MotionSection
       id="why-we-exist"
       ref={sectionRef}
-      className="relative w-full px-6 py-28 sm:px-12 sm:py-36 sm:w-full mx-auto bg-white overflow-hidden"
+      className="relative w-full px-6 py-28 sm:px-12 sm:py-36 sm:w-full mx-auto  overflow-hidden"
 
       whileTap={{ scale: 0.98 }}
     >
-      {/* Blueprint-style grid accent */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="grid"
-              width="10"
-              height="10"
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#3B82F6" strokeWidth="0.2" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+
 
       {/* Header */}
-      <div className="relative z-10 mb-16 text-center md:text-left w-2/3 mx-auto">
+      <div className="relative z-10 mb-16 text-center md:text-left w-2/3 mx-auto bg-white">
         <SectionSubHeader
           title="Why We Exist"
           subtitle="Closing the gap between idea and product."
@@ -61,7 +41,7 @@ export default function WhyWeExist() {
       </div>
 
       {/* Timeline Section */}
-      <div className="relative pr-6 text-right z-10 w-2/3 mx-auto">
+      <div className="relative pr-6 text-right z-10 w-2/3 mx-auto bg-white/20 backdrop-blur-2xl p-6">
         {/* Animated Dashed Line */}
         <motion.div
           initial={{ height: 0 }}
@@ -124,11 +104,7 @@ export default function WhyWeExist() {
         <div className="flex mt-6 justify-end text-gray-500 font-medium">– Frank</div>
       </motion.blockquote>
 
-      {/* Optional Scroll Progress Bar */}
-      <motion.div
-        style={{ width }}
-        className="absolute bottom-0 left-0 h-1 bg-blue-500 rounded-full"
-      />
+
     </MotionSection>
   );
 }
