@@ -51,7 +51,7 @@ const SectionDivider = ({
       viewBox="0 0 500 100"
       preserveAspectRatio="none"
       className={clsx(
-        'w-full h-16 md:h-24 text-white dark:text-gray-900',
+        'w-full h-16 md:h-24 text-white dark:text-[#030b1a]',
         direction === 'top' ? 'rotate-180' : '',
         className
       )}

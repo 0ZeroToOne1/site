@@ -19,3 +19,8 @@ export { default as RichPricingTable } from './RichPricingTable';
 export { default as Signature } from './Signature';
 export { default as TestimonialHighlight } from './TestimonialHighlight';
 export { default as OpenSourceBadgeWall } from './OpenSourceBadgeWall';
+export { default as ProductBuildSimulator } from './ProductBuildSimulator';
+export { default as BuildTimeline } from './BuildTimeline';
+export { default as SectionHeader } from './SectionHeader';
+export { default as StyledLanding } from './StyledLanding';
+import { default as FounderRoadmapBuilder } from './FounderRoadmapBuilder';

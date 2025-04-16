@@ -55,7 +55,7 @@ const OpenSourceBadgeWall: FC = () => {
               whileHover={{ scale: 1.05 }}
             >
               <Image src={tool.logo} alt={tool.name} width={28} height={28} />
-              <span className="text-gray-800 font-medium">{tool.name}</span>
+              <span className="text-[#030b1a] font-medium">{tool.name}</span>
             </motion.div>
           ))}
         </motion.div>

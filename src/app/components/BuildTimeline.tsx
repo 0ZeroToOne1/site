@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useRef, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
+import SectionSubHeader from './SectionSubHeader';
 
 const steps = [
   { week: 'Week 1–2', title: 'Product Discovery + Design', desc: 'We align goals, define scope, and create clickable UI mockups for key flows.' },
@@ -58,10 +59,7 @@ const BuildTimelineCurved: FC = () => {
     <section id="timeline" ref={ref} className="relative bg-white text-[#030b1a] py-24 px-4 sm:px-8 overflow-hidden">
       <div className="w-full sm:w-2/3 mx-auto">
         <div className="text-center sm:text-right mb-20">
-          <h2 className="text-3xl font-semibold mb-4">Your Road to Launch</h2>
-          <p className="text-gray-600">
-            A transparent 8-week timeline that shows how we bring your idea to life.
-          </p>
+          <SectionSubHeader title="Your Road to Launch" subtitle="A transparent 8-week timeline that shows how we bring your idea to life." />
         </div>
 
         {/* Curved SVG Path */}
@@ -97,8 +95,8 @@ const BuildTimelineCurved: FC = () => {
                   <div className="w-5 h-5 bg-white border-4 border-blue-500 rounded-full shadow-md" />
                   {activeStep === idx && (
                     <motion.div
-                      className="absolute inset-0 rounded-full border-2 border-blue-500 animate-ping"
-                      style={{ top: '-8px', left: '-8px', width: '24px', height: '24px' }}
+                      className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping"
+                      style={{ top: '-1px', left: '0px', width: '20px', height: '20px' }}
                     />
                   )}
                 </div>
@@ -111,7 +109,7 @@ const BuildTimelineCurved: FC = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <h4 className="text-sm text-gray-500">{step.week}</h4>
-                  <h3 className="text-lg font-semibold text-gray-800">{step.title}</h3>
+                  <h3 className="text-lg font-semibold text-[#030b1a]">{step.title}</h3>
                   <p className="text-gray-600 mt-1">{step.desc}</p>
                 </motion.div>
               </div>
@@ -119,15 +117,6 @@ const BuildTimelineCurved: FC = () => {
           })}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-24">
-          <a
-            href="/pricing"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
-          >
-            Customize This Timeline →
-          </a>
-        </div>
       </div>
     </section>
   );

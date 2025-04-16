@@ -1,24 +1,19 @@
-
+// components/builder/MotionSection.tsx
 'use client';
 
-import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { ComponentPropsWithoutRef } from 'react';
 
-interface MotionSectionProps {
-  children: ReactNode;
-  className?: string;
-  id?: string;
-}
+type MotionSectionProps = ComponentPropsWithoutRef<typeof motion.section>;
 
-const MotionSection = ({ children, className = '', id }: MotionSectionProps) => {
+const MotionSection = ({ children, ...rest }: MotionSectionProps) => {
   return (
     <motion.section
-      id={id}
-      className={className}
-      initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      {...rest}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.4 }}
     >
       {children}
     </motion.section>

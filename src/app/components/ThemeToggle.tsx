@@ -21,7 +21,7 @@ export default function HeaderToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="flex flex-col px-3 py-1.5 gap-2 items-center text-sm text-gray-800 bg-white border border-gray-200 shadow rounded-full hover:shadow-md transition-all duration-200 group md:flex-row dark:border-gray-700 dark:bg-[#030b1a] dark:text-gray-200"
+      className="flex flex-col px-3 py-1.5 gap-2 items-center text-sm text-[#030b1a] bg-white border border-gray-200 shadow rounded-full hover:shadow-md transition-all duration-200 group md:flex-row dark:border-gray-700 dark:bg-[#030b1a] dark:text-gray-200"
       aria-label="Toggle Dark Mode"
     >
       <span className="font-medium">

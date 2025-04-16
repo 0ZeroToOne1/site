@@ -17,7 +17,7 @@ interface BadgeProps {
 const CaseStudyBadge: FC<BadgeProps> = ({
   label,
   icon: Icon,
-  color = 'bg-gray-100 text-gray-800',
+  color = 'bg-gray-100 text-[#030b1a]',
   className = '',
   tooltip,
   delay = 0,

@@ -54,3 +54,32 @@ h6 {
 .sub-heading {
   @apply mb-4 text-3xl font-semibold text-gray-900;
 }
+
+@layer utilities {
+  .animate-blink {
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.3s ease-in-out infinite;
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-1px);
+    }
+    75% {
+      transform: translateX(1px);
+    }
+  }
+}

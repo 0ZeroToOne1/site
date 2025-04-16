@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { CheckCircle, Search, Loader2, Plus } from 'lucide-react';
 import WithShimmer from './WithShimmer';
 
 interface Props {
@@ -10,25 +11,40 @@ interface Props {
 const DiscoverMock = ({ loading = false }: Props) => {
   return (
     <motion.div
-      className="rounded-md border border-gray-200 bg-white p-4 shadow-sm w-full md:w-3/4"
+      className="rounded-md border border-gray-200 bg-white p-4 shadow-sm w-full md:w-2/3 text-left"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
       <WithShimmer loading={loading}>
-        <div className="mb-4 text-sm font-medium text-gray-700">Discovery Notes</div>
-        <ul className="space-y-2 text-sm text-gray-600">
-          <li>✅ Founder interview complete</li>
-          <li>✅ Competitor analysis uploaded</li>
-          <li>🔍 Persona research: in progress</li>
+        <div className="mb-4 text-sm font-semibold text-gray-800">🧠 Discovery Tracker</div>
+
+        <ul className="space-y-3 text-sm">
+          <li className="flex items-center gap-2 text-green-600">
+            <CheckCircle className="h-4 w-4" />
+            Founder interview complete
+          </li>
+          <li className="flex items-center gap-2 text-green-600">
+            <CheckCircle className="h-4 w-4" />
+            Competitor analysis uploaded
+          </li>
+          <li className="flex items-center gap-2 text-yellow-600 animate-pulse">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Persona research: in progress
+          </li>
         </ul>
-        <div className="mt-4 flex items-center gap-2">
+
+        {/* Note input */}
+        <div className="mt-6 flex items-center gap-2">
           <input
             type="text"
-            placeholder="Add note..."
-            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm"
+            placeholder="Add discovery note..."
+            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition"
           />
-          <button className="rounded bg-[var(--accent)] px-4 py-2 text-sm text-white hover:bg-[var(--accent-hover)]">
+          <button
+            className="inline-flex items-center gap-1 rounded-md bg-[var(--accent)] px-4 py-2 text-sm text-white hover:bg-[var(--accent-hover)] transition"
+          >
+            <Plus className="h-4 w-4" />
             Add
           </button>
         </div>

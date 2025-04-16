@@ -33,7 +33,7 @@ const TestimonialHighlight: FC = () => {
 
         {/* 💬 Quote */}
         <motion.blockquote
-          className="relative text-lg text-gray-800 font-medium leading-relaxed italic"
+          className="relative text-lg text-[#030b1a] font-medium leading-relaxed italic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}

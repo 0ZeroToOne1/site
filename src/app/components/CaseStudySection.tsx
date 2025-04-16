@@ -4,8 +4,8 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import MotionSection from './builder/MotionSection';
 import RevealText from './builder/RevealText';
-import ClientLogoMarquee from './ClientLogoMarquee';
 import CaseStudyBadge from './CaseStudyBadge';
+import SectionSubHeader from './SectionSubHeader';
 
 import {
   ClipboardList,
@@ -72,7 +72,7 @@ const cards = [
     description: 'End-to-end client tracking, payments, and project workflow for independent designers.',
     badge: {
       label: 'Bootstrapped',
-      color: 'bg-gray-100 text-gray-800',
+      color: 'bg-gray-100 text-[#030b1a]',
       icon: Zap,
       tooltip: 'Launched with no external funding',
     },
@@ -92,88 +92,102 @@ const cards = [
 
 const containerVariants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
 };
 
-const CaseStudySection: FC = () => {
+const PatchworkCaseStudyGrid: FC = () => {
   return (
     <MotionSection
       id="case-studies"
-      className="px-4 py-20 text-right bg-white sm:px-6 sm:py-24"
+      className="relative px-4 py-20 bg-white sm:px-6 sm:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      {/* Title + Description */}
-      <motion.div className="w-full mx-auto mb-10 sm:w-2/3 sm:mb-12">
-        <motion.div
-          className="flex mb-4 gap-2 items-center justify-center md:justify-end text-[#030b1a]"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Briefcase className="h-6 w-6" />
-          <RevealText className="text-3xl font-semibold text-center md:text-right text-[#030b1a] sm:text-3xl">
-            Case Studies
-          </RevealText>
-        </motion.div>
-
-        <motion.p
-          className="px-2 text-sm text-gray-600 sm:text-base"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          From inspection platforms and healthcare tools to investor-backed fintech — we build what scales.
-        </motion.p>
+      <motion.div
+        className="w-full mx-auto mb-12 sm:w-2/3 text-center sm:text-left"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <SectionSubHeader
+          title="Case Studies"
+          subtitle="From inspection platforms and healthcare tools to investor-backed fintech — we build what scales."
+        />
       </motion.div>
 
-      {/* Responsive Card Layout */}
       <motion.div
-        className="flex w-full px-1 mb-8 mx-auto gap-3 scrollbar-hide snap-x snap-mandatory sm:gap-6 overflow-x-auto sm:grid sm:grid-cols-3 sm:overflow-visible sm:snap-none sm:px-0 sm:w-5/6"
+        className="grid grid-cols-1 sm:grid-cols-6 sm:auto-rows-[minmax(180px,_1fr)] gap-4 sm:gap-6 w-full max-w-6xl mx-auto"
         variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
       >
         {cards.map(({ title, description, icon: Icon, badge }, i) => (
           <motion.div
             key={`card-${i}`}
-            whileHover={{ scale: 1.03 }}
-            whileFocus={{ scale: 1.03 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            tabIndex={0}
-            className="flex flex-col p-4 items-start bg-white shadow-sm ring-1 ring-gray-200 rounded-lg hover:shadow-lg focus:shadow-lg transition min-w-[75%] sm:min-w-0 snap-start shrink-0 sm:p-5 outline-none"
             variants={cardVariants}
+            whileHover={{ scale: 1.025 }}
+            transition={{ duration: 0.3 }}
+            className={`
+              relative group overflow-hidden z-20
+              flex flex-col items-start p-4 sm:p-5 rounded-xl bg-white shadow-md ring-1 ring-gray-200
+              hover:shadow-blue-200 hover:ring-2 hover:ring-blue-300
+              transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)]
+              ${i % 6 === 0 ? 'sm:col-span-3 sm:row-span-2' :
+                i % 6 === 1 ? 'sm:col-span-3' :
+                i % 6 === 2 ? 'sm:col-span-2 sm:row-span-2' :
+                i % 6 === 3 ? 'sm:col-span-4' :
+                i % 6 === 4 ? 'sm:col-span-2' :
+                'sm:col-span-3'}
+            `}
           >
-            {badge && (
-              <CaseStudyBadge
-                label={badge.label}
-                icon={badge.icon}
-                color={badge.color}
-                tooltip={badge.tooltip}
-                delay={i * 0.08}
-              />
-            )}
-            <div className="mb-2 text-[#030b1a]">
-              <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+            <div className="absolute inset-0 bg-blue-100/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out z-0 rounded-xl" />
+            <div className="relative z-10">
+              {badge && (
+                <CaseStudyBadge
+                  label={badge.label}
+                  icon={badge.icon}
+                  color={badge.color}
+                  tooltip={badge.tooltip}
+                  delay={i * 0.08}
+                />
+              )}
+              <div className="mb-2 text-[#030b1a]">
+                <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <h3 className="mb-1 text-sm font-semibold sm:text-base text-[#030b1a]">{title}</h3>
+              <RevealText as="p" className="text-xs text-gray-700 leading-snug text-left sm:text-sm">
+                {description}
+              </RevealText>
             </div>
-            <h3 className="mb-1 text-sm font-semibold sm:text-base text-[#030b1a]">
-              {title}
-            </h3>
-            <RevealText as="p" className="text-xs text-gray-700 leading-snug text-left sm:text-sm">
-              {description}
-            </RevealText>
           </motion.div>
         ))}
       </motion.div>
+              {/* ⬇️ Diagonal SVG Background */}
+              <svg
 
-      <ClientLogoMarquee />
+  className="absolute bottom-0 left-0 w-full h-[100dvh] z-0 pointer-events-none"
+  viewBox="0 0 100 100"
+  preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <polygon points="0,100 100,0 100,100" fill="var(--accent)" />
+  <polygon points="0,80 100,20 100,100" fill="white" opacity="0.1" />
+</svg>
     </MotionSection>
   );
 };
 
-export default CaseStudySection;
+export default PatchworkCaseStudyGrid;

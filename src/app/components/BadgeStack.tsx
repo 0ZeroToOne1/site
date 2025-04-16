@@ -24,7 +24,7 @@ const BadgeStack: FC = () => {
       {badges.map(({ icon: Icon, text }, index) => (
         <motion.div
           key={index}
-          className="flex-col px-2 py-1 gap-1 items-center text-sm text-gray-800 bg-gradient-to-r from-white to-gray-100 shadow rounded-full hover:scale-105 hover:shadow-md transition-all duration-300 ease-out inline-flex sm:flex-row sm:gap-2 sm:px-4 sm:py-1.5 max-w-[80vw] sm:max-w-none"
+          className="flex-col px-2 py-1 gap-1 items-center text-sm text-[#030b1a] bg-gradient-to-r from-white to-gray-100 shadow rounded-full hover:scale-105 hover:shadow-md transition-all duration-300 ease-out inline-flex sm:flex-row sm:gap-2 sm:px-4 sm:py-1.5 max-w-[80vw] sm:max-w-none"
           variants={{
             hidden: { opacity: 0, y: 10 },
             visible: { opacity: 1, y: 0 },

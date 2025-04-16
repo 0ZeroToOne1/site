@@ -6,6 +6,7 @@ import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import MotionCard from './builder/MotionCard'; // Ensure this path is correct
+import SectionHeader from './SectionHeader'; // Ensure this path is correct
 
 const CallToActionSection: FC = () => {
   return (
@@ -31,6 +32,8 @@ const CallToActionSection: FC = () => {
             <Send className="h-6 w-6 shrink-0 text-[var(--accent)]" />
           </MotionCard>
         </motion.div>
+
+
         <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
           Let’s Build Something Worth Launching
         </h2>
@@ -44,7 +47,7 @@ const CallToActionSection: FC = () => {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
       >
-        Backed by 10+ years, built for bold founders
+        Backed by 10+ years of rock solid performance, built for bold founders.
       </motion.p>
 
       {/* 🧠 Description */}

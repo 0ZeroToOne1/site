@@ -89,7 +89,7 @@ export default function ShareYourIdeaModal() {
 
                 {/* Heading */}
                 <motion.h2
-                  className="mb-4 text-xl font-semibold text-gray-800"
+                  className="mb-4 text-xl font-semibold text-[#030b1a]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}

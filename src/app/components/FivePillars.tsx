@@ -5,6 +5,7 @@ import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Eye, Zap, Handshake, Target, Sparkles } from 'lucide-react';
 import RevealText from './builder/RevealText';
+import SectionSubHeader from './SectionSubHeader';
 
 const pillars = [
   {
@@ -40,25 +41,9 @@ const FivePillars: FC = () => {
       {/* Optional animated shimmer background */}
       <div className="absolute bg-gradient-to-br from-white to-blue-50 inset-0 pointer-events-none via-transparent opacity-20" />
 
-      <div className="relative z-10 w-full mx-auto mb-16 text-center md:text-left sm:w-2/3">
-        <motion.h2
-          className="mb-4 text-4xl font-bold text-[#030b1a]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          What We Believe
-        </motion.h2>
-        <motion.p
-          className="mx-auto text-gray-600 text-base text-center md:text-left"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          These are the principles that guide every build — from kickoff to launch and beyond.
-        </motion.p>
+      <div className="relative z-10 w-full mx-auto mb-16 text-center md:text-right sm:w-2/3">
+  <SectionSubHeader title="What We Beleive" subtitle="These are the principles that guide every build — from kickoff to launch and beyond." />
+  
       </div>
 
       <motion.div

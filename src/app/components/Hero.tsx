@@ -52,7 +52,7 @@ export default function HeroSection() {
       <div className="relative z-20">
         <motion.h1
           style={{ y: yHeadline, opacity }}
-          className="mb-4 mx-auto text-4xl font-bold leading-tight tracking-tight sm:text-6xl text-[#030b1a] max-w-[90vw] sm:max-w-3xl"
+          className="mb-4 mx-auto text-3xl font-bold leading-tight tracking-tight sm:text-6xl text-[#030b1a] max-w-[90vw] sm:max-w-7xl sm:mt-12"
         >
           Turn Bold Ideas Into Launch-Ready Software
         </motion.h1>
@@ -71,7 +71,7 @@ export default function HeroSection() {
         <motion.div
   className="flex mt-12 mx-auto justify-center items-center text-center animate-bounce cursor-pointer"
   onClick={() => {
-    document.getElementById('how-we-work')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
   }}
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}

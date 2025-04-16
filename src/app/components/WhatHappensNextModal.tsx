@@ -32,7 +32,7 @@ const WhatHappensNextModal: FC = () => {
       {/* Trigger */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex-col px-6 py-3 gap-2 items-center text-sm text-gray-800 bg-gradient-to-r from-white to-gray-100 shadow rounded-full hover:scale-105 hover:shadow-md transition-all duration-300 ease-out inline-flex md:flex-row"
+        className="flex-col px-6 py-3 gap-2 items-center text-sm text-[#030b1a] bg-gradient-to-r from-white to-gray-100 shadow rounded-full hover:scale-105 hover:shadow-md transition-all duration-300 ease-out inline-flex md:flex-row"
       >
         What Happens Next?
       </button>
