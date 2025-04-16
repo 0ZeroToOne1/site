@@ -1,4 +1,4 @@
-// components/motion/MotionSection.tsx
+// components/builder/MotionSection.tsx
 'use client';
 
 import { motion } from 'framer-motion';
