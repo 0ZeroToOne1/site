@@ -1,199 +1,125 @@
 
-# ZeroToOne Site
+# **ZeroToOne** – From Idea to Launch, Engineered for Speed & Style
 
-![Banner](public/banner.png)
-
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-
-Welcome to the **ZeroToOne** site repository! This is the official site for the ZeroToOne brand — a fast, modern, and impressively polished digital experience showcasing our mission, approach, and services.
-
-## Table of Contents
-1. [Project Overview](#project-overview)  
-2. [Technology Stack](#technology-stack)  
-3. [Features](#features)  
-4. [Getting Started](#getting-started)  
-5. [Usage](#usage)  
-6. [Project Structure](#project-structure)  
-7. [Component System](#component-system)  
-8. [Recent Updates](#recent-updates)  
-9. [Suggestions & “WOW” Factor Ideas](#suggestions--wow-factor-ideas)  
-10. [Contributing](#contributing)  
-11. [License](#license)
+> We help visionaries turn bold ideas into real, working products — designed to impress, built to scale, and ready to launch.
 
 ---
 
-## Project Overview
+## **Tech Stack Overview**
 
-ZeroToOne is a digital product studio helping founders go from raw idea to launch-ready MVP. Our site is designed to reflect that — built for clarity, conversion, and visual delight.
-
----
-
-## Technology Stack
-
-We’ve built the ZeroToOne site on a modern and flexible stack to ensure great performance and maintainability:
-
-- **Framework**: [Next.js](https://nextjs.org/)  
-- **Library**: [React](https://reactjs.org/)  
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)  
-- **Animation**: [Framer Motion](https://www.framer.com/motion/)  
-- **Carousel**: [Embla Carousel](https://www.embla-carousel.com/)  
-- **Icons**: [Lucide React](https://lucide.dev/)  
-- **Build & Deployment**: Vercel
+| Layer            | Tech                                                                 |
+|------------------|----------------------------------------------------------------------|
+| Frontend         | Next.js 14 (App Router, Server Actions), React 18, TypeScript        |
+| Styling          | Tailwind CSS (w/ Headwind conventions), Framer Motion, Radix UI      |
+| UI Components    | Lucide Icons, Embla Carousel, Custom SVG Paths, Animations           |
+| Backend (optional)| Edge Functions / Serverless API routes (via Vercel)                  |
+| Deployment       | Vercel + Preview Environments, GitHub Actions CI (optional)          |
+| Marketing Infra  | Lead Magnet Flow (PDF, Notion Planner, Email Sequence, Microsite)    |
 
 ---
 
-## Features
+## **Project Philosophy**
 
-- **Responsive Productized Pricing Layout** — Tabbed mobile-first UI with animated highlights
-- **Framer Motion Animations** — Scroll-triggered fade-ins, floating effects, and CTA reveals
-- **Parallax Hero Section** — With interactive watermark and animated scroll cue
-- **Client Logo Marquee** — Brand row with subtle motion
-- **Modular Components** — All homepage sections are encapsulated React components
-- **Mobile-Optimized Feature Comparison** — Swipeable carousel using Embla + expandable items
-- **Modern Typography and Layout** — Based on Inter, Tailwind's utility-first grid, and layered motion
-- **Dark-on-Light Design** — Clean, airy feel with subtle depth and shadowing
+ZeroToOne is not just a website — it's a polished, narrative-driven digital experience engineered to guide founders from spark to ship. Every section is modular, scroll-animated, and responsive, optimized for:
+
+- **Fast launches** with performance-first builds (LCP < 1.5s)
+- **Emotional storytelling** through motion and layout
+- **Component reusability** for rapid iteration and A/B testing
 
 ---
 
-## Getting Started
+## **Core Components (with Engineering Highlights)**
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/username/zero-to-one-site.git
-   cd zero-to-one-site
-   ```
+### 1. **HeroSection**
+- Framer Motion parallax + opacity transforms
+- Scroll-reactive floating “0 → 1” watermark
+- Radial gradient + vignette background layer
+- Bouncing scroll cue icon and CTA reveal
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-   or
-   ```bash
-   yarn install
-   ```
+### 2. **HowWeWorkTimeline**
+- Two-column layout with sticky vertical scroll nav
+- `<TimelineProgressNav />` supports scroll-sync, animated highlights, and a glowing progress rail
+- Inline `<DiscoverMock />`, `<DesignMock />`, `<BuildMock />`, `<LaunchMock />` visual modules
+- Mobile: Switches to swipeable nav with `<TimelineMobileNav />`
 
-3. **Run locally**:
-   ```bash
-   npm run dev
-   ```
-   or
-   ```bash
-   yarn dev
-   ```
+### 3. **ProductBuildSimulator**
+- Drag-in UI blocks with blur/scale transitions
+- Floating terminal preview window
+- Scroll-triggered toast + optional confetti celebration
+- Built using Framer Motion `useScroll`, `useTransform`, and a custom animation context
 
-4. **Open in your browser**:
-   Visit [http://localhost:3000](http://localhost:3000)
+### 4. **WhatYouGet**
+- `<MotionCard />` with staggered entry animations
+- Click-to-expand detailed list with animated height/opacity
+- Supports hover pulse accents and dynamic iconography
 
----
+### 5. **CaseStudySection**
+- Grid of animated cards with optional brand logos
+- Icons animate on reveal, with slot support for links
+- Responsive carousel (Embla) on mobile
+- Modular quote pairings optionally tied to client logos
 
-## Usage
+### 6. **ComparePlansTable**
+- Tier-based feature breakdown using grouped rows
+- Animated hover tooltips via Radix Popover
+- Scroll-aware “Recommended” badge with shimmer
+- Responsive: converts to swipeable card format on mobile
 
-- **Development**: Source files are in `app/` and `components/`. Tailwind config and PostCSS enabled.
-- **Production Build**:
-   ```bash
-   npm run build
-   ```
-   or
-   ```bash
-   yarn build
-   ```
-
-- **Deployment**: Deploy via [Vercel](https://vercel.com) or your preferred provider.
+### 7. **CallToActionSection**
+- Final CTA with floating testimonial quote
+- Animated background pulse or spotlight
+- “What Happens Next?” modal trigger w/ Framer transitions
 
 ---
 
-## Project Structure
+## **Signature Features & WOW Effects**
 
-```plaintext
-zero-to-one-site/
-├─ public/              # Static assets (images, icons, etc.)
-├─ app/                 # Next.js 13+ routing and pages
-│  ├─ components/       # Modular, animated components
-│  ├─ styles/           # Tailwind + global CSS
-│  └─ layout.tsx        # Shared layout wrapper
-├─ package.json         
-└─ README.md
+- **Animated SVG Blueprint Paths**  
+  Connect every section with flowing, scroll-reactive SVG lines in accent color (`#0284c7`), giving a cohesive architectural blueprint feel.
+
+- **FloatingCTA Component**  
+  Auto-reveals after scrolling past `#hero`, stays docked with subtle shimmer, and supports modal triggers or link navigation.
+
+- **Lead Magnet System**  
+  - PDF Checklist: “Zero to MVP in 60 Days” (polished for download/share)
+  - Notion Launch Planner: Public template with guided prompts
+  - Microsite: `mvp.zerotoone.so` w/ gated download and email capture
+  - Email Series: 3-step automation, styled for ConvertKit or Resend
+
+---
+
+## **Developer Experience**
+
+- **Tailwind + Headwind** for visually grouped utility-first class ordering
+- **Modular folder structure**: Each section/component self-contained with animation, icons, and config
+- **Prettier + ESLint + GitHub Actions** for formatting and CI lint checks
+- **Custom VS Code Extension**: _DaVinci ERB Formatter_ for our Rails sister projects
+
+---
+
+## **Getting Started**
+
+```bash
+pnpm install
+pnpm dev
 ```
 
----
-
-## 🧩 ZeroToOne Component System
-
-We’ve built a component library designed to maximize reusability, polish, and animation clarity — powered by Framer Motion + Tailwind.
-
-### ✨ Motion Helpers
-
-| Component         | Description                                                | Example |
-|------------------|------------------------------------------------------------|---------|
-| `<MotionSection />` | Wraps top-level sections with fade + scale scroll animation | `id="features" className="py-24"` |
-| `<MotionCard />`    | Applies hover scaling, drop shadow, and entrance fade    | Great for pricing tiers or case studies |
-| `<MotionList />`    | Adds staggered `li` entrance animation                   | For timelines, bullet features |
-| `<RevealText />`    | Animated fade+lift for text content                     | Used in headings and intro copy |
-
-#### ✅ Usage Examples:
-
-```tsx
-import MotionSection from '@/components/MotionSection';
-import MotionCard from '@/components/MotionCard';
-import MotionList from '@/components/MotionList';
-import RevealText from '@/components/RevealText';
-import { motion } from 'framer-motion';
-
-<MotionSection className="py-24 text-center bg-white">
-  <RevealText className="text-3xl font-bold">
-    Built to Impress. Designed to Scale.
-  </RevealText>
-</MotionSection>
-
-<MotionCard className="p-6 bg-white rounded-xl shadow-md">
-  <h3 className="text-xl font-semibold">Launch Plan</h3>
-</MotionCard>
-
-<MotionList className="space-y-4">
-  <motion.li variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
-    ✅ Feature 1
-  </motion.li>
-  <motion.li variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
-    ✅ Feature 2
-  </motion.li>
-</MotionList>
-```
+> Requires: Node 18+, pnpm, and Vercel CLI (optional)
 
 ---
 
-## Recent Updates
+## **Next Up: Enhancements Coming Soon**
 
-- ✅ Scroll-linked navigation & sticky timeline with vertical progress bar
-- ✅ Responsive pricing plan selector with sliding indicator + animated tab content
-- ✅ Interactive “What Happens Next” component with timeline breakdown
-- ✅ Signature-style founder reveal and call-to-action modal
-- ✅ Launch plan carousel with feature descriptions and tier comparisons
-
----
-
-## Suggestions & “WOW” Factor Ideas
-
-- ✨ Signature hero watermark with parallax effect
-- ✨ Animated badges and expanding cards
-- ✨ Scroll-triggered motion on every section
-- ✨ Toggle between tabbed + carousel pricing views
-- ✨ Mobile-first, desktop-enhanced UX architecture
+- [ ] Launch Teaser Animation (Discover → Design → Build → Launch → Logo Reveal)
+- [ ] Floating Founder Console – Live UI for onboarding
+- [ ] Testimonials carousel with motion avatars + staggered entry
+- [ ] Blueprint background animation synced with scroll
+- [ ] Real client logo wall and open source credits section
+- [ ] Founder Resource Hub with gated downloads (PDFs, templates, Notion kits)
 
 ---
 
-## Contributing
+## **Contributing**
 
-1. **Fork** this repository  
-2. **Create a feature branch**  
-3. **Commit** your changes  
-4. **Push** to your fork  
-5. **Submit a pull request**
-
----
-
-## License
-
-MIT License
+Have an idea to make the experience even smoother or more impressive?  
+Open a PR or get in touch — we build fast, test obsessively, and polish every pixel.
