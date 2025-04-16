@@ -23,7 +23,7 @@ const TimelineMobileNav: FC<Props> = ({ steps, visibleStep, onScrollToStep }) =>
           className={`rounded-full px-3 py-1 text-sm font-medium transition ${
             visibleStep === step.id
               ? 'bg-[var(--accent)] text-white'
-              : 'bg-gray-100 text-gray-500 hover:text-gray-800'
+              : 'bg-gray-100 text-gray-500 hover:text-[#030b1a]'
           }`}
         >
           {step.title.replace(/^0\d\. /, '')}

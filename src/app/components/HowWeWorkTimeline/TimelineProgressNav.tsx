@@ -19,7 +19,7 @@ const TimelineProgressNav: FC<Props> = ({ steps, visibleStep, onScrollToStep }) 
   const progress = visibleStep ? (visibleStep / totalSteps) * 100 : 0;
 
   return (
-    <div className="relative hidden md:block sticky top-28 self-start">
+    <div className="hidden md:block sticky top-28 self-start">
       {/* Static track */}
       <div className="absolute left-2 top-0 h-full w-0.5 bg-gray-200" />
 
